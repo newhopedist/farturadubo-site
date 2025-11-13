@@ -1,6 +1,9 @@
+import Image from 'next/image'
+import { brand } from '@/lib/brand'
+
 export default function About() {
   return (
-    <section id="about" className="py-20 bg-white">
+    <section id="about" className="py-20 bg-white scroll-mt-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
@@ -14,9 +17,9 @@ export default function About() {
               agrícola brasileira.
             </p>
             <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-              Com anos de experiência no mercado, desenvolvemos produtos inovadores que atendem 
-              às necessidades específicas de cada cultura, maximizando o potencial produtivo 
-              e garantindo resultados excepcionais para nossos clientes.
+              Com foco em inovação e qualidade, desenvolvemos produtos que atendem às necessidades 
+              específicas de cada cultura, maximizando o potencial produtivo e garantindo resultados 
+              excepcionais para nossos clientes.
             </p>
             <div className="grid grid-cols-2 gap-6">
               <div className="bg-fartura-green-50 p-4 rounded-lg">
@@ -31,13 +34,16 @@ export default function About() {
           </div>
           
           <div className="relative">
-            <div className="bg-fartura-green-100 rounded-2xl p-8 h-96 flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-24 h-24 bg-fartura-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <span className="text-white font-bold text-3xl">F</span>
-                </div>
-                <h3 className="text-2xl font-bold text-fartura-green-800 mb-4">FARTURADUBO</h3>
-                <p className="text-gray-600">Compromisso com a excelência agrícola</p>
+            <div className="bg-white rounded-2xl p-8 h-[28rem] flex items-center justify-center">
+              <div className="w-[28rem] h-64 md:w-[36rem] md:h-80 relative">
+                <Image
+                  src={brand.heroPackSrc}
+                  alt="Embalagens FARTURADUBO"
+                  fill
+                  sizes="(min-width: 768px) 576px, 448px"
+                  className="object-contain"
+                  priority
+                />
               </div>
             </div>
             <div className="absolute -bottom-6 -right-6 bg-white rounded-xl shadow-lg p-6 border border-fartura-green-200">

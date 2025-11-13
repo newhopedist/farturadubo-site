@@ -1,11 +1,13 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { brand } from '@/lib/brand'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState<string>('home')
 
   const navigation = [
     { name: 'Início', href: '#home' },
@@ -15,26 +17,49 @@ export default function Header() {
     { name: 'Contato', href: '#contact' },
   ]
 
+  useEffect(() => {
+    const ids = ['home', 'about', 'products', 'benefits', 'contact']
+    const elements = ids
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => !!el)
+
+    if (!elements.length) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => (a.boundingClientRect.top > b.boundingClientRect.top ? 1 : -1))
+        if (visible[0]?.target?.id) {
+          setActiveSection(visible[0].target.id)
+        }
+      },
+      {
+        root: null,
+        threshold: 0.25,
+        rootMargin: '-80px 0px -55% 0px',
+      }
+    )
+
+    elements.forEach((el) => observer.observe(el))
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <header className="fixed top-0 left-0 right-0 bg-white shadow-lg z-50">
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Top">
         <div className="flex w-full items-center justify-between border-b border-fartura-green-100 py-4">
           <div className="flex items-center">
             <Link href="#home" className="flex items-center">
-              {/* Substitua o arquivo em /public/logo.png pela logomarca real */}
-              <div className="h-12 w-12 relative">
+              <div className="h-12 w-48 relative">
                 <Image
-                  src="/logo.png"
-                  alt="Logomarca FARTURADUBO"
+                  src={brand.logoSrc}
+                  alt={brand.alt}
                   fill
-                  sizes="48px"
-                  className="object-contain rounded-lg"
+                  sizes="192px"
+                  className="object-contain"
                   priority
                 />
-              </div>
-              <div className="ml-3">
-                <h1 className="text-xl font-bold text-fartura-green-800">FARTURADUBO</h1>
-                <p className="text-xs text-fartura-green-600">Fertilizantes de Alta Qualidade</p>
               </div>
             </Link>
           </div>
@@ -44,7 +69,11 @@ export default function Header() {
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-base font-medium text-gray-700 hover:text-fartura-green-600 transition-colors"
+                className={`text-base font-medium transition-colors ${
+                  activeSection === link.href.replace('#', '')
+                    ? 'text-fartura-green-600'
+                    : 'text-gray-700 hover:text-fartura-green-600'
+                }`}
               >
                 {link.name}
               </Link>
@@ -76,7 +105,11 @@ export default function Header() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-fartura-green-600 hover:bg-fartura-green-50 rounded-md"
+                  className={`block px-3 py-2 text-base font-medium rounded-md transition-colors ${
+                    activeSection === link.href.replace('#', '')
+                      ? 'text-fartura-green-700 bg-fartura-green-50'
+                      : 'text-gray-700 hover:text-fartura-green-600 hover:bg-fartura-green-50'
+                  }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {link.name}

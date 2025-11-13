@@ -1,4 +1,6 @@
 import Link from 'next/link'
+import Image from 'next/image'
+import { brand } from '@/lib/brand'
 
 export default function Footer() {
   const quickLinks = [
@@ -10,17 +12,24 @@ export default function Footer() {
   ]
 
   const products = [
-    { name: 'FARTURAMAX NPK 20-10-10', href: '#products' },
-    { name: 'FARTURAMAX NPK 15-15-15', href: '#products' },
-    { name: 'FARTUREIA Foliar Plus', href: '#products' },
-    { name: 'FARTUREIA Micro Mix', href: '#products' }
+    { name: 'FARTURAMAX', href: '#products' },
+    { name: 'FARTUREIA', href: '#products' }
   ]
 
   const contactInfo = [
-    { icon: '📍', text: 'Av. das Palmeiras, 1234 - Maringá/PR' },
-    { icon: '📞', text: '(44) 3030-4040' },
-    { icon: '✉️', text: 'vendas@farturadubo.com.br' },
-    { icon: '🕒', text: 'Seg-Sex: 8h às 18h' }
+    { icon: '🏢', text: 'NEWHOPE COMÉRCIO DE FERTILIZANTES E QUÍMICOS LTDA' },
+    { icon: '🆔', text: 'CNPJ: 53.709.557/0001-62' },
+    { icon: '📍', text: 'Rua João Ferreira de Araújo, 321 A, Jardim Flórida' },
+    { icon: '🏙️', text: 'Jacundá, Aquiraz - CE' },
+    { icon: '🏷️', text: 'CEP: 61700-000' },
+    { icon: '📞', text: '+55 85 99128-9449' },
+    { icon: '💬', text: 'WhatsApp: +55 85 99128-9449' }
+  ]
+
+  const socialLinks = [
+    { href: 'https://www.instagram.com/farturadubo', label: 'Instagram', icon: '📷' },
+    { href: 'https://www.facebook.com/farturadubo', label: 'Facebook', icon: '📘' },
+    { href: 'https://wa.me/5585991289449', label: 'WhatsApp', icon: '💬' },
   ]
 
   return (
@@ -29,12 +38,15 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="col-span-1 lg:col-span-2">
             <div className="flex items-center mb-4">
-              <div className="h-12 w-12 bg-fartura-green-600 rounded-lg flex items-center justify-center mr-3">
-                <span className="text-white font-bold text-xl">F</span>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold">FARTURADUBO</h3>
-                <p className="text-fartura-green-200 text-sm">Fertilizantes de Alta Qualidade</p>
+              <div className="h-16 w-64 md:h-20 md:w-80 relative mr-3">
+                <Image
+                  src={brand.logoSrc}
+                  alt={brand.alt}
+                  fill
+                  sizes="(min-width: 768px) 400px, 320px"
+                  className="object-contain"
+                  priority
+                />
               </div>
             </div>
             <p className="text-fartura-green-100 leading-relaxed mb-6 max-w-md">
@@ -42,18 +54,18 @@ export default function Footer() {
               agrícola brasileira e o sucesso dos nossos clientes.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="w-10 h-10 bg-fartura-green-700 rounded-full flex items-center justify-center hover:bg-fartura-green-600 transition-colors">
-                <span className="text-sm">📘</span>
-              </a>
-              <a href="#" className="w-10 h-10 bg-fartura-green-700 rounded-full flex items-center justify-center hover:bg-fartura-green-600 transition-colors">
-                <span className="text-sm">📷</span>
-              </a>
-              <a href="#" className="w-10 h-10 bg-fartura-green-700 rounded-full flex items-center justify-center hover:bg-fartura-green-600 transition-colors">
-                <span className="text-sm">💼</span>
-              </a>
-              <a href="#" className="w-10 h-10 bg-fartura-green-700 rounded-full flex items-center justify-center hover:bg-fartura-green-600 transition-colors">
-                <span className="text-sm">🐦</span>
-              </a>
+              {socialLinks.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  className="w-10 h-10 bg-fartura-green-700 rounded-full flex items-center justify-center hover:bg-fartura-green-600 transition-colors"
+                >
+                  <span className="text-sm" aria-hidden="true">{s.icon}</span>
+                </a>
+              ))}
             </div>
           </div>
 
@@ -90,47 +102,19 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-fartura-green-700 mt-12 pt-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Informações de Contato</h4>
-              <div className="space-y-3">
-                {contactInfo.map((info, index) => (
-                  <div key={index} className="flex items-center space-x-3">
-                    <span className="text-fartura-green-300">{info.icon}</span>
-                    <span className="text-fartura-green-100 text-sm">{info.text}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Atendimento</h4>
-              <p className="text-fartura-green-100 text-sm mb-4">
-                Nossa equipe de especialistas está pronta para ajudar você a escolher 
-                os melhores fertilizantes para a sua lavoura.
-              </p>
-              <div className="bg-fartura-green-800 rounded-lg p-4">
-                <p className="text-fartura-green-100 text-sm mb-2">💬 WhatsApp Comercial</p>
-                <p className="text-white font-semibold">(44) 9 9876-5432</p>
-              </div>
-            </div>
-          </div>
-        </div>
+        
 
         <div className="border-t border-fartura-green-700 mt-8 pt-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-fartura-green-200 text-sm">
-              © 2024 FARTURADUBO. Todos os direitos reservados.
-            </p>
+            <p className="text-fartura-green-200 text-sm">© 2024 {brand.name}. Todos os direitos reservados.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link href="#" className="text-fartura-green-200 hover:text-white text-sm transition-colors">
+              <Link href="/politica-de-privacidade" className="text-fartura-green-200 hover:text-white text-sm transition-colors">
                 Política de Privacidade
               </Link>
-              <Link href="#" className="text-fartura-green-200 hover:text-white text-sm transition-colors">
+              <Link href="/termos-de-uso" className="text-fartura-green-200 hover:text-white text-sm transition-colors">
                 Termos de Uso
               </Link>
-              <Link href="#" className="text-fartura-green-200 hover:text-white text-sm transition-colors">
+              <Link href="/mapa-do-site" className="text-fartura-green-200 hover:text-white text-sm transition-colors">
                 Mapa do Site
               </Link>
             </div>
