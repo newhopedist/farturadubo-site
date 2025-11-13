@@ -117,6 +117,9 @@ export default function Footer() {
               <Link href="/mapa-do-site" className="text-fartura-green-200 hover:text-white text-sm transition-colors">
                 Mapa do Site
               </Link>
+              <Link href="/organograma" className="text-fartura-green-200 hover:text-white text-sm transition-colors">
+                Organograma
+              </Link>
             </div>
           </div>
         </div>
