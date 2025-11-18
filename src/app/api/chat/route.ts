@@ -4,13 +4,13 @@ import { NextResponse } from 'next/server'
 function getRuleBasedResponse(userMessage: string): string | null {
   const message = userMessage.toLowerCase()
   
-  // Pricing - now with actual prices (check first for specific pricing questions)
+  // Pricing - now showing consultation prices
   if (message.includes('preço') || message.includes('valor') || message.includes('custo') || message.includes('preços')) {
-    if (message.includes('5kg') && !message.includes('25')) return 'Ureia 5kg: R$ 25,00 - Ideal para pequenas áreas e testes'
-    if (message.includes('25kg') || (message.includes('25') && message.includes('kg'))) return 'Ureia 25kg: R$ 95,00 - Perfeito para médios produtores'
-    if (message.includes('500kg')) return 'Ureia 500kg (Big Bag): R$ 1.450,00 - Para grandes propriedades'
-    if (message.includes('1000kg')) return 'Ureia 1000kg (Big Bag): R$ 2.750,00 - Para operações em larga escala'
-    return 'Nossos preços: 5kg (R$25), 25kg (R$95), 500kg (R$1.450), 1000kg (R$2.750). Qual embalagem você tem interesse?'
+    if (message.includes('5kg') && !message.includes('25')) return 'Ureia 5kg - Ideal para pequenas áreas e testes. Valor sob consulta.'
+    if (message.includes('25kg') || (message.includes('25') && message.includes('kg'))) return 'Ureia 25kg - Perfeito para médios produtores. Valor sob consulta.'
+    if (message.includes('500kg')) return 'Ureia 500kg (Big Bag) - Para grandes propriedades. Valor sob consulta.'
+    if (message.includes('1000kg')) return 'Ureia 1000kg (Big Bag) - Para operações em larga escala. Valor sob consulta.'
+    return 'Nossa ureia está disponível nas embalagens: 5kg, 25kg, 500kg e 1000kg. Entre em contato para valores sob consulta.'
   }
   
   // Product information - now focused on ureia
@@ -21,9 +21,9 @@ function getRuleBasedResponse(userMessage: string): string | null {
     return 'Temos ureia de alta qualidade (45% N) disponível em embalagens de 5kg, 25kg, 500kg e 1000kg. Qual tamanho você precisa?'
   }
   
-  // Packaging information - updated sizes
+  // Packaging information - without prices
   if (message.includes('embalagem') || message.includes('saco') || message.includes('big bag') || message.includes('tamanho')) {
-    return 'Oferecemos ureia nas seguintes embalagens: saco de 5kg (R$25), saco de 25kg (R$95), Big Bag 500kg (R$1.450) e Big Bag 1000kg (R$2.750). Qual você prefere?'
+    return 'Oferecemos ureia nas seguintes embalagens: saco de 5kg, saco de 25kg, Big Bag 500kg e Big Bag 1000kg. Entre em contato para valores sob consulta. Qual você prefere?'
   }
   
   // Contact information
@@ -43,12 +43,12 @@ function getRuleBasedResponse(userMessage: string): string | null {
   
   // Greeting
   if (message.includes('olá') || message.includes('oi') || message.includes('bom dia') || message.includes('boa tarde') || message.includes('boa noite')) {
-    return 'Olá! Sou o assistente da FARTURADUBO. Como posso ajudar você hoje? Posso informar sobre nossa ureia (5kg a 1000kg), preços ou fazer seu pedido!'
+    return 'Olá! Sou o assistente da FARTURADUBO. Como posso ajudar você hoje? Posso informar sobre nossa ureia (5kg a 1000kg), valores ou fazer seu pedido!'
   }
   
   // Help request
   if (message.includes('ajuda') || message.includes('ajude') || message.includes('duvida')) {
-    return 'Claro! Posso ajudar com informações sobre nossa ureia (embalagens de 5kg, 25kg, 500kg, 1000kg), preços, aplicação ou fazer seu pedido. O que você precisa?'
+    return 'Claro! Posso ajudar com informações sobre nossa ureia (embalagens de 5kg, 25kg, 500kg, 1000kg), valores, aplicação ou fazer seu pedido. O que você precisa?'
   }
   
   // Delivery and logistics
@@ -89,7 +89,7 @@ export async function POST(req: Request) {
     const system = {
       role: 'system',
       content:
-        'Você é um atendente da FARTURADUBO. Responda de forma clara, cordial e objetiva. Contexto: Produtos principais FARTUREIA (N–S, ureia 90%, sulfato de amônio 10%; embalagens 5/25/50 kg e Big Bags 500/1000 kg) e FARTURAMAX (linha mineral/NPK). Oriente uso geral, encaminhe para contato/WhatsApp +55 85 99128-9449 quando necessário. Não invente dados técnicos sem base. Se precisar coletar dados, peça nome, e-mail, telefone e interesse.'
+        'Você é um atendente da FARTURADUBO. Responda de forma clara, cordial e objetiva. Contexto: Produtos principais ureia de alta qualidade (45% N) disponível em embalagens 5kg, 25kg, 500kg e 1000kg. Valores sob consulta. Oriente uso geral, encaminhe para contato/WhatsApp +55 85 99128-9449 quando necessário. Não invente dados técnicos sem base. Se precisar coletar dados, peça nome, e-mail, telefone e interesse.'
     }
 
     const messages = [system, ...userMessages]
@@ -117,7 +117,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ 
         ok: false, 
         error: msg,
-        fallback: 'Desculpe, estamos com limitação no momento. Para atendimento imediato, entre em contato pelo WhatsApp +55 85 99128-9449 ou email contato@farturadubo.com.br'
+        fallback: 'Desculpe, estamos com limitação no momento. Para valores e atendimento imediato, entre em contato pelo WhatsApp +55 85 99128-9449 ou email contato@farturadubo.com.br'
       }, { status: res.status })
     }
     const content =
