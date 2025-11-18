@@ -20,13 +20,12 @@ export default function ChatWidget() {
       const res = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: [{ role: 'user', content: text }] })
+        body: JSON.stringify({ messages: messages.map((m) => ({ role: m.role, content: m.content })) })
       })
       const json = await res.json()
       if (!json?.ok) {
-        const msg = json?.error === 'missing_api_key'
-          ? 'Configuração ausente: defina OPENAI_API_KEY em .env.local e reinicie o servidor.'
-          : 'Ocorreu um erro ao responder. Tente novamente em instantes.'
+        // Use fallback message if available, otherwise show error
+        const msg = json?.fallback || `Erro: ${json?.error || 'Ocorreu um erro ao responder. Tente novamente em instantes.'}`
         setMessages((m) => [...m, { role: 'assistant', content: msg }])
       } else {
         const reply = json?.reply || 'Desculpe, não consegui responder agora.'

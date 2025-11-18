@@ -65,14 +65,19 @@ export default function Benefits() {
   ]
 
   return (
-    <section id="benefits" className="py-20 bg-fartura-green-50 scroll-mt-24">
+    <section
+      id="benefits"
+      className="relative py-20 scroll-mt-24 bg-cover bg-center"
+      style={{ backgroundImage: "url('/comunidade-de-pessoas-que-trabalham-juntas-na-agricultura-para-cultivar-alimentos.jpg')" }}
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-fartura-green-900 mb-4">
+        <div className="relative text-center mb-16 px-6 py-10 rounded-xl">
+          <div className="absolute inset-0 -z-10 bg-black/30 md:bg-black/40 rounded-xl" />
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Benefícios dos Nossos Fertilizantes
           </h2>
-          <div className="w-20 h-1 bg-fartura-green-600 mx-auto mb-6"></div>
-          <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+          <div className="w-20 h-1 bg-white mx-auto mb-6"></div>
+          <p className="text-lg text-white/90 max-w-3xl mx-auto">
             Nossos produtos oferecem vantagens comprovadas para maximizar a produtividade 
             e garantir resultados excepcionais na sua lavoura.
           </p>
