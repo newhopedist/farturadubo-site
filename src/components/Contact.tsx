@@ -176,7 +176,7 @@ export default function Contact() {
                   required
                   value={formData.name}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-fartura-green-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-fartura-green-600 rounded-lg focus:ring-2 focus:ring-fartura-green-500 focus:border-fartura-green-500 bg-white text-fartura-green-800"
                   placeholder="Seu nome completo"
                 />
               </div>
@@ -193,7 +193,7 @@ export default function Contact() {
                     required
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-fartura-green-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-fartura-green-600 rounded-lg focus:ring-2 focus:ring-fartura-green-500 focus:border-fartura-green-500 bg-white text-fartura-green-800"
                     placeholder="seu@email.com"
                   />
                 </div>
@@ -238,7 +238,7 @@ export default function Contact() {
                   name="interest"
                   value={formData.interest}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-fartura-green-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-fartura-green-600 rounded-lg focus:ring-2 focus:ring-fartura-green-500 focus:border-fartura-green-500 bg-white text-fartura-green-800"
                 >
                   <option value="">Selecione um interesse</option>
                   <option value="farturamax">FARTURAMAX</option>
