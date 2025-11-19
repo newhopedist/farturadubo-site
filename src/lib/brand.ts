@@ -6,5 +6,5 @@ export const brand = {
   heroLogoSrc: '/logo.svg',
   heroPackSrc: '/hero-packs.webp',
   alt: 'Logomarca FARTURADUBO',
-  benefitsNutritionSrc: '/panta%20com%20ureia.png',
+  benefitsNutritionSrc: '/panta%20com%20ureia.webp',
 };
