@@ -53,7 +53,7 @@ export default function Header() {
             <Link href="#home" className="flex items-center">
               <div className="h-12 w-48 relative">
                 <Image
-                  src={brand.logoSrc}
+                  src="/logo-branco.webp"
                   alt={brand.alt}
                   fill
                   sizes="192px"
