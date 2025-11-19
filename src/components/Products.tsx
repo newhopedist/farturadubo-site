@@ -106,6 +106,9 @@ export default function Products() {
                     fill
                     sizes="(min-width:1024px) 160px, 160px"
                     className="object-contain"
+                    loading="lazy"
+                    placeholder="blur"
+                    blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYwIiBoZWlnaHQ9IjExMiIgdmlld0JveD0iMCAwIDE2MCAxMTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxNjAiIGhlaWdodD0iMTEyIiBmaWxsPSIjZjBmOWZmIi8+Cjx0ZXh0IHg9IjgwIiB5PSI2MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEyIiBmaWxsPSIjNjQ3NDhiIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5GQVJUVVJBRFVCTzwvdGV4dD4KPC9zdmc+"
                   />
                 </div>
               </div>
@@ -145,7 +148,14 @@ export default function Products() {
             <div className="p-6">
               <div className="flex items-start gap-6">
                 <div className="w-40 h-28 relative flex-shrink-0">
-                  <Image src={selectedProduct.imageSrc} alt={selectedProduct.name} fill sizes="160px" className="object-contain" />
+                  <Image 
+                    src={selectedProduct.imageSrc} 
+                    alt={selectedProduct.name} 
+                    fill 
+                    sizes="160px" 
+                    className="object-contain"
+                    priority
+                  />
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-fartura-green-800 mb-2">{selectedProduct.name}</h3>

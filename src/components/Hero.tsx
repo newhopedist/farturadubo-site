@@ -8,7 +8,7 @@ export default function Hero() {
     <section
       id="home"
       className="relative pt-32 md:pt-40 pb-12 bg-cover bg-center"
-      style={{ backgroundImage: `url(${brand.heroSrc ?? '/hero-fundo.webp'})`, minHeight: '520px' }}
+      style={{ backgroundImage: `url(${brand.heroSrc})`, minHeight: '520px' }}
       aria-label="Imagem de destaque FARTURADUBO"
       role="img"
     >

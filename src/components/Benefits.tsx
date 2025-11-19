@@ -68,7 +68,7 @@ export default function Benefits() {
     <section
       id="benefits"
       className="relative py-20 scroll-mt-24 bg-cover bg-center"
-      style={{ backgroundImage: "url('/comunidade-de-pessoas-que-trabalham-juntas-na-agricultura-para-cultivar-alimentos.jpg')" }}
+      style={{ backgroundImage: "url('/comunidade-de-pessoas-que-trabalham-juntas-na-agricultura-para-cultivar-alimentos.webp')" }}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="relative text-center mb-16 px-6 py-10 rounded-xl">
