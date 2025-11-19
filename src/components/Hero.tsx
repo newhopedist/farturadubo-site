@@ -17,7 +17,7 @@ export default function Hero() {
       {brand.heroLogoSrc && (
         <div className="absolute top-6 right-6 md:top-8 md:right-8 opacity-95">
           <div className="relative h-10 md:h-12 w-40">
-            <Image src="/logo-branco.webp" alt="Logomarca" fill sizes="160px" className="object-contain" priority />
+            <Image src={brand.heroLogoSrc} alt="Logomarca" fill sizes="160px" className="object-contain" priority />
           </div>
         </div>
       )}

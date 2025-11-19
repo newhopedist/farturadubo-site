@@ -40,7 +40,7 @@ export default function Footer() {
             <div className="flex items-center mb-4">
               <div className="h-16 w-64 md:h-20 md:w-80 relative mr-3">
                 <Image
-                  src={brand.logoSrc}
+                  src="/logo-branco.webp"
                   alt={brand.alt}
                   fill
                   sizes="(min-width: 768px) 400px, 320px"
