@@ -3,7 +3,7 @@ export const brand = {
   slogan: '',
   logoSrc: '/logo.svg',
   heroSrc: '/foto-aerea-de-um-belo-campo-verde-agricola-perto-de-montanhas.webp',
-  heroLogoSrc: '/logo.webp',
+  heroLogoSrc: '/logo.webp?v=2',
   heroPackSrc: '/hero-packs.webp',
   alt: 'Logomarca FARTURADUBO',
   benefitsNutritionSrc: '/panta%20com%20ureia.webp',
