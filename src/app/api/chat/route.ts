@@ -94,7 +94,7 @@ export async function POST(req: Request) {
 
     const messages = [system, ...userMessages]
 
-    const res = await fetch('https://api.openai.com/v1/responses', {
+    const res = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -104,15 +104,21 @@ export async function POST(req: Request) {
       },
       body: JSON.stringify({
         model: 'gpt-4o-mini',
-        input: messages.map((m) => `${m.role.toUpperCase()}: ${m.content}`).join('\n'),
+        messages: messages,
         temperature: 0.5,
-        max_output_tokens: 400
+        max_tokens: 400
       })
     })
 
     const json = await res.json()
     if (!res.ok) {
       const msg = json?.error?.message || res.statusText || 'openai_error'
+      console.error('OpenAI API Error:', {
+        status: res.status,
+        statusText: res.statusText,
+        error: json?.error,
+        message: msg
+      })
       // Provide fallback message when OpenAI fails
       return NextResponse.json({ 
         ok: false, 
@@ -121,6 +127,7 @@ export async function POST(req: Request) {
       }, { status: res.status })
     }
     const content =
+      json?.choices?.[0]?.message?.content ||
       json?.output_text ||
       json?.output?.[0]?.content?.[0]?.text?.value ||
       json?.content?.[0]?.text?.value || ''
