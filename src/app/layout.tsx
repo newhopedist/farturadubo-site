@@ -19,6 +19,14 @@ export const metadata: Metadata = {
   alternates: {
     canonical: siteUrl,
   },
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '32x32' },
+      { url: '/icon.png', type: 'image/png', sizes: '32x32' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/icon.png',
+  },
   openGraph: {
     title: 'FARTURADUBO - Fertilizantes de Alta Qualidade',
     description: 'Especialistas em fertilizantes de alta qualidade para agricultura. Conheça FARTURAMAX e FARTUREIA.',
@@ -87,6 +95,9 @@ export default function RootLayout({
     <html lang="pt-BR">
       <head>
         <link rel="preload" href={brand.heroSrc} as="image" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="/icon.png" />
+        <link rel="apple-touch-icon" href="/icon.png" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}

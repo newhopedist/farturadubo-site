@@ -3,22 +3,28 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { useCart } from '@/hooks/useCart'
+import { ShoppingCart } from 'lucide-react'
 import { brand } from '@/lib/brand'
+import NotificationBell from './NotificationBell'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState<string>('home')
+  const { getTotalItems } = useCart()
+
+  const cartItemsCount = getTotalItems()
 
   const navigation = [
     { name: 'Início', href: '#home' },
     { name: 'Quem Somos', href: '#about' },
-    { name: 'Produtos', href: '#products' },
+    { name: 'Produtos', href: '/produtos' }, // Link para página de produtos
     { name: 'Benefícios', href: '#benefits' },
     { name: 'Contato', href: '#contact' },
   ]
 
   useEffect(() => {
-    const ids = ['home', 'about', 'products', 'benefits', 'contact']
+    const ids = ['home', 'about', 'benefits', 'contact']
     const elements = ids
       .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => !!el)
@@ -70,7 +76,7 @@ export default function Header() {
                 key={link.name}
                 href={link.href}
                 className={`text-base font-medium transition-colors ${
-                  activeSection === link.href.replace('#', '')
+                  activeSection === link.href.replace('#', '') || link.href === '/produtos'
                     ? 'text-fartura-green-600'
                     : 'text-gray-700 hover:text-fartura-green-600'
                 }`}
@@ -78,9 +84,54 @@ export default function Header() {
                 {link.name}
               </Link>
             ))}
+            
+            {/* Botão do Carrinho */}
+            <Link
+              href="/carrinho"
+              className="relative p-2 text-gray-700 hover:text-fartura-green-600 transition-colors"
+            >
+              <ShoppingCart className="w-6 h-6" />
+              {cartItemsCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-fartura-green-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                  {cartItemsCount}
+                </span>
+              )}
+            </Link>
+
+            {/* Link Admin */}
+            <Link
+              href="/admin"
+              className="text-gray-700 hover:text-fartura-green-600 transition-colors font-medium"
+            >
+              Admin
+            </Link>
+
+            {/* Link Acompanhar Pedido */}
+            <Link
+              href="/pedidos"
+              className="text-gray-700 hover:text-fartura-green-600 transition-colors font-medium"
+            >
+              Acompanhar Pedido
+            </Link>
+
+            {/* Sino de Notificações */}
+            <NotificationBell />
           </div>
 
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center space-x-4">
+            {/* Botão do Carrinho no Mobile */}
+            <Link
+              href="/carrinho"
+              className="relative p-2 text-gray-700 hover:text-fartura-green-600 transition-colors"
+            >
+              <ShoppingCart className="w-6 h-6" />
+              {cartItemsCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-fartura-green-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                  {cartItemsCount}
+                </span>
+              )}
+            </Link>
+            
             <button
               type="button"
               className="text-gray-700 hover:text-fartura-green-600 focus:outline-none"
@@ -106,7 +157,7 @@ export default function Header() {
                   key={link.name}
                   href={link.href}
                   className={`block px-3 py-2 text-base font-medium rounded-md transition-colors ${
-                    activeSection === link.href.replace('#', '')
+                    activeSection === link.href.replace('#', '') || link.href === '/produtos'
                       ? 'text-fartura-green-700 bg-fartura-green-50'
                       : 'text-gray-700 hover:text-fartura-green-600 hover:bg-fartura-green-50'
                   }`}

@@ -69,7 +69,7 @@ export default function ChatWidget() {
           </div>
           <div className="p-3 border-t border-fartura-green-200 flex gap-2">
             <input
-              className="flex-1 border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-fartura-green-500 focus:border-transparent"
+              className="flex-1 border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-fartura-green-500 focus:border-transparent text-fartura-green-700 placeholder-fartura-green-400"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Digite sua mensagem"
