@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { getOrderById } from '@/services/orders'
@@ -26,21 +26,24 @@ interface OrderConfirmation {
   }>
 }
 
-export default function ConfirmacaoPage() {
+function ConfirmacaoContent() {
   const searchParams = useSearchParams()
-  const orderId = searchParams.get('pedido')
+  const orderId = searchParams?.get('pedido')
   const [order, setOrder] = useState<OrderConfirmation | null>(null)
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     if (orderId) {
       loadOrder()
+    } else {
+      setIsLoading(false)
     }
   }, [orderId])
 
   const loadOrder = async () => {
     try {
-      const orderData = await getOrderById(orderId!)
+      if (!orderId) return
+      const orderData = await getOrderById(orderId)
       if (orderData) {
         setOrder(orderData)
       }
@@ -260,5 +263,20 @@ export default function ConfirmacaoPage() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function ConfirmacaoPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-fartura-green-500 mx-auto mb-4"></div>
+          <p className="text-gray-600">Carregando...</p>
+        </div>
+      </div>
+    }>
+      <ConfirmacaoContent />
+    </Suspense>
   )
 }

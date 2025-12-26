@@ -1,3 +1,5 @@
+'use client'
+
 import { useState } from 'react'
 import { ProductWithPrices } from '@/types/ecommerce'
 import { useCart } from '@/hooks/useCart'
