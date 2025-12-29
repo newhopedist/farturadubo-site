@@ -13,8 +13,8 @@ const FALLBACK_PRODUCTS: ProductWithPrices[] = [
     active: true,
     created_at: new Date().toISOString(),
     prices: [
-      { id: 1, produto_id: 1, peso: '5kg', preco: 89.90, estoque: 100, ativo: true },
-      { id: 2, produto_id: 1, peso: '25kg', preco: 350.00, estoque: 50, ativo: true }
+      { id: '1', produto_id: 1, peso: '5kg', preco: 89.90, estoque: 100, ativo: true },
+      { id: '2', produto_id: 1, peso: '25kg', preco: 350.00, estoque: 50, ativo: true }
     ]
   },
   {
@@ -27,8 +27,8 @@ const FALLBACK_PRODUCTS: ProductWithPrices[] = [
     active: true,
     created_at: new Date().toISOString(),
     prices: [
-      { id: 3, produto_id: 2, peso: '25kg', preco: 180.00, estoque: 200, ativo: true },
-      { id: 4, produto_id: 2, peso: '500kg', preco: 3400.00, estoque: 10, ativo: true }
+      { id: '3', produto_id: 2, peso: '25kg', preco: 180.00, estoque: 200, ativo: true },
+      { id: '4', produto_id: 2, peso: '500kg', preco: 3400.00, estoque: 10, ativo: true }
     ]
   }
 ]
