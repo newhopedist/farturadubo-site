@@ -7,11 +7,13 @@ import { useCart } from '@/hooks/useCart'
 import { ShoppingCart } from 'lucide-react'
 import { brand } from '@/lib/brand'
 import NotificationBell from './NotificationBell'
+import { usePathname } from 'next/navigation'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState<string>('home')
   const { getTotalItems } = useCart()
+  const pathname = usePathname()
 
   const cartItemsCount = getTotalItems()
 
@@ -24,6 +26,8 @@ export default function Header() {
   ]
 
   useEffect(() => {
+    if (pathname !== '/') return
+
     const ids = ['home', 'about', 'benefits', 'contact']
     const elements = ids
       .map((id) => document.getElementById(id))
@@ -49,14 +53,21 @@ export default function Header() {
 
     elements.forEach((el) => observer.observe(el))
     return () => observer.disconnect()
-  }, [])
+  }, [pathname])
+
+  const getHref = (href: string) => {
+    if (href.startsWith('#')) {
+      return pathname === '/' ? href : `/${href}`
+    }
+    return href
+  }
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-white shadow-lg z-50">
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Top">
         <div className="flex w-full items-center justify-between border-b border-fartura-green-100 py-4">
           <div className="flex items-center">
-            <Link href="#home" className="flex items-center">
+            <Link href="/" className="flex items-center">
               <div className="h-12 w-48 relative">
                 <Image
                   src="/logo.webp?v=3"
@@ -74,9 +85,9 @@ export default function Header() {
             {navigation.map((link) => (
               <Link
                 key={link.name}
-                href={link.href}
+                href={getHref(link.href)}
                 className={`text-base font-medium transition-colors ${
-                  activeSection === link.href.replace('#', '') || link.href === '/produtos'
+                  activeSection === link.href.replace('#', '') && pathname === '/'
                     ? 'text-fartura-green-600'
                     : 'text-gray-700 hover:text-fartura-green-600'
                 }`}
@@ -155,9 +166,9 @@ export default function Header() {
               {navigation.map((link) => (
                 <Link
                   key={link.name}
-                  href={link.href}
+                  href={getHref(link.href)}
                   className={`block px-3 py-2 text-base font-medium rounded-md transition-colors ${
-                    activeSection === link.href.replace('#', '') || link.href === '/produtos'
+                    activeSection === link.href.replace('#', '') && pathname === '/'
                       ? 'text-fartura-green-700 bg-fartura-green-50'
                       : 'text-gray-700 hover:text-fartura-green-600 hover:bg-fartura-green-50'
                   }`}
