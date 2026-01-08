@@ -6,7 +6,7 @@ export default function ChatWidget() {
   const [open, setOpen] = useState(false)
   const [input, setInput] = useState('')
   const [messages, setMessages] = useState<Array<{ role: 'user' | 'assistant'; content: string }>>([
-    { role: 'assistant', content: 'Olá! Sou o assistente da FARTURADUBO. Como posso ajudar?' }
+    { role: 'assistant', content: 'Olá! Bem-vindo à Farturadubo, a parceira da sua colheita. Sou o assistente virtual oficial. Como posso ajudar com sua adubação hoje?' }
   ])
   const [loading, setLoading] = useState(false)
 
