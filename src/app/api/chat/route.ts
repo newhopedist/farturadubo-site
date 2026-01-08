@@ -47,6 +47,16 @@ export async function POST(req: Request) {
     const projectId = process.env.OPENAI_PROJECT_ID
     const orgId = process.env.OPENAI_ORG_ID
     
+    if (!apiKey) {
+      console.error('❌ Erro: OPENAI_API_KEY não encontrada nas variáveis de ambiente')
+      return NextResponse.json({ 
+        ok: false, 
+        error: 'missing_api_key_on_server',
+        details: 'A variável OPENAI_API_KEY não está configurada no painel da Vercel.',
+        fallback: 'Desculpe, nosso sistema de IA está temporariamente indisponível. Para atendimento imediato, entre em contato pelo WhatsApp +55 85 99128-9449.' 
+      }, { status: 500 })
+    }
+
     if (apiKey) {
       const system = {
         role: 'system',

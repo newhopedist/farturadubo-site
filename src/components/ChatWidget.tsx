@@ -24,6 +24,9 @@ export default function ChatWidget() {
       })
       const json = await res.json()
       if (!json?.ok) {
+        // Log detalhado do erro para debug
+        console.error('❌ Erro no Chat:', json)
+        
         // Use fallback message if available, otherwise show error
         const msg = json?.fallback || `Erro: ${json?.error || 'Ocorreu um erro ao responder. Tente novamente em instantes.'}`
         setMessages((m) => [...m, { role: 'assistant', content: msg }])
