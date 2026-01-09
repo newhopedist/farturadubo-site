@@ -15,14 +15,26 @@ export default function ChatWidget() {
   const send = async () => {
     const text = input.trim()
     if (!text || loading) return
-    setMessages((m) => [...m, { role: 'user', content: text }])
+    
+    // Cria a nova mensagem do usuário
+    const newUserMessage = { role: 'user' as const, content: text }
+    
+    // Atualiza o estado visualmente
+    setMessages((m) => [...m, newUserMessage])
     setInput('')
     setLoading(true)
+    
     try {
+      // Prepara o histórico para envio (mensagens atuais + nova mensagem)
+      const messagesToSend = [...messages, newUserMessage].map((m) => ({ 
+        role: m.role, 
+        content: m.content 
+      }))
+
       const res = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: messages.map((m) => ({ role: m.role, content: m.content })) })
+        body: JSON.stringify({ messages: messagesToSend })
       })
       const json = await res.json()
       if (!json?.ok) {
