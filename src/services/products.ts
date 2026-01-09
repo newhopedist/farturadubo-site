@@ -4,6 +4,21 @@ import { Product, ProductPrice, ProductWithPrices } from '@/types/ecommerce'
 // Dados de fallback para quando o Supabase não estiver conectado ou falhar
 const FALLBACK_PRODUCTS: ProductWithPrices[] = [
   {
+    id: 1,
+    name: 'FARTURAMAX',
+    description: 'Fertilizante foliar de alta performance, rico em macro e micronutrientes essenciais para o desenvolvimento vigoroso das plantas. Ideal para soja, milho e feijão.',
+    slug: 'farturamax',
+    category: 'fertilizante',
+    price: 0,
+    image_url: '/25KG.webp',
+    active: true,
+    created_at: new Date().toISOString(),
+    prices: [
+      { id: '1', produto_id: 1, peso: '5kg', preco: 0, estoque: 0, ativo: true },
+      { id: '2', produto_id: 1, peso: '25kg', preco: 0, estoque: 0, ativo: true }
+    ]
+  },
+  {
     id: 2,
     name: 'FARTUREIA',
     description: 'Ureia agrícola com 45% de nitrogênio garantido. Tecnologia de liberação controlada que evita perdas por volatilização e lixiviação.',

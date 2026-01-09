@@ -15,6 +15,8 @@ export default function ProductCard({ product }: ProductCardProps) {
   const [quantity, setQuantity] = useState(1)
   const [isAddingToCart, setIsAddingToCart] = useState(false)
 
+  const isComingSoon = product.slug === 'farturamax' || selectedPrice.preco === 0
+
   const handleAddToCart = async () => {
     if (!selectedPrice) return
     
@@ -99,45 +101,59 @@ export default function ProductCard({ product }: ProductCardProps) {
         {/* Preço e Estoque */}
         <div className="mb-4">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-2xl font-bold text-fartura-green-600">
-              R$ {selectedPrice.preco.toFixed(2)}
+            <span className={`text-2xl font-bold ${isComingSoon ? 'text-gray-500' : 'text-fartura-green-600'}`}>
+              {isComingSoon ? 'EM BREVE' : `R$ ${selectedPrice.preco.toFixed(2)}`}
             </span>
-            <span className="text-sm text-gray-500">
-              Estoque: {selectedPrice.estoque}
-            </span>
+            {!isComingSoon && (
+              <span className="text-sm text-gray-500">
+                Estoque: {selectedPrice.estoque}
+              </span>
+            )}
           </div>
         </div>
 
-        {/* Seletor de Quantidade */}
-        <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-700 mb-2">Quantidade:</label>
-          <div className="flex items-center space-x-3">
-            <button
-              onClick={decrementQuantity}
-              disabled={quantity <= 1}
-              className="p-1 rounded-md bg-gray-100 hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              <Minus className="w-4 h-4" />
-            </button>
-            <span className="text-lg font-medium min-w-[3rem] text-center">{quantity}</span>
-            <button
-              onClick={incrementQuantity}
-              disabled={quantity >= selectedPrice.estoque}
-              className="p-1 rounded-md bg-gray-100 hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              <Plus className="w-4 h-4" />
-            </button>
+        {/* Seletor de Quantidade (escondido se EM BREVE) */}
+        {!isComingSoon && (
+          <div className="mb-4">
+            <label className="block text-sm font-medium text-gray-700 mb-2">Quantidade:</label>
+            <div className="flex items-center space-x-3">
+              <button
+                onClick={decrementQuantity}
+                disabled={quantity <= 1}
+                className="p-1 rounded-md bg-gray-100 hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                <Minus className="w-4 h-4" />
+              </button>
+              <span className="text-lg font-medium min-w-[3rem] text-center">{quantity}</span>
+              <button
+                onClick={incrementQuantity}
+                disabled={quantity >= selectedPrice.estoque}
+                className="p-1 rounded-md bg-gray-100 hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                <Plus className="w-4 h-4" />
+              </button>
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Botão Adicionar ao Carrinho */}
         <button
           onClick={handleAddToCart}
-          disabled={isAddingToCart || selectedPrice.estoque === 0}
-          className="w-full bg-fartura-green-500 hover:bg-fartura-green-600 disabled:bg-gray-300 disabled:cursor-not-allowed text-white font-medium py-3 px-4 rounded-md transition-colors duration-200 flex items-center justify-center space-x-2"
+          disabled={isAddingToCart || selectedPrice.estoque === 0 || isComingSoon}
+          className={`w-full font-medium py-3 px-4 rounded-md transition-colors duration-200 flex items-center justify-center space-x-2 ${
+            isComingSoon 
+              ? 'bg-gray-300 cursor-not-allowed text-gray-500'
+              : 'bg-fartura-green-500 hover:bg-fartura-green-600 disabled:bg-gray-300 disabled:cursor-not-allowed text-white'
+          }`}
         >
-          <ShoppingCart className="w-5 h-5" />
-          <span>{isAddingToCart ? 'Adicionando...' : 'Adicionar ao Carrinho'}</span>
+          {isComingSoon ? (
+            <span>Aguarde Lançamento</span>
+          ) : (
+            <>
+              <ShoppingCart className="w-5 h-5" />
+              <span>{isAddingToCart ? 'Adicionando...' : 'Adicionar ao Carrinho'}</span>
+            </>
+          )}
         </button>
 
         {selectedPrice.estoque === 0 && (
