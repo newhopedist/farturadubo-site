@@ -2,11 +2,13 @@
 
 import { useState } from 'react'
 
+import ReactMarkdown from 'react-markdown'
+
 export default function ChatWidget() {
   const [open, setOpen] = useState(false)
   const [input, setInput] = useState('')
   const [messages, setMessages] = useState<Array<{ role: 'user' | 'assistant'; content: string }>>([
-    { role: 'assistant', content: 'Olá! Bem-vindo à Farturadubo, a parceira da sua colheita. Sou o assistente virtual oficial. Como posso ajudar com sua adubação hoje?' }
+    { role: 'assistant', content: 'Olá! Eu sou a **Esperança**, assistente virtual da Farturadubo. 🌱\n\nEstou aqui para ser sua parceira na colheita. Como posso ajudar com sua adubação hoje?' }
   ])
   const [loading, setLoading] = useState(false)
 
@@ -64,9 +66,24 @@ export default function ChatWidget() {
               <div key={i} className={m.role === 'user' ? 'text-right' : 'text-left'}>
                 <div className={
                   m.role === 'user'
-                    ? 'inline-block bg-fartura-green-600 text-white px-3 py-2 rounded-lg'
-                    : 'inline-block bg-fartura-green-50 text-gray-800 px-3 py-2 rounded-lg border border-fartura-green-200'
-                }>{m.content}</div>
+                    ? 'inline-block bg-fartura-green-600 text-white px-3 py-2 rounded-lg text-left'
+                    : 'inline-block bg-fartura-green-50 text-gray-800 px-3 py-2 rounded-lg border border-fartura-green-200 text-left prose prose-sm max-w-none'
+                }>
+                  {m.role === 'user' ? (
+                    m.content
+                  ) : (
+                    <ReactMarkdown
+                      components={{
+                        p: ({children}) => <p className="mb-1 last:mb-0">{children}</p>,
+                        strong: ({children}) => <span className="font-bold text-fartura-green-800">{children}</span>,
+                        ul: ({children}) => <ul className="list-disc pl-4 mb-2">{children}</ul>,
+                        li: ({children}) => <li className="mb-0.5">{children}</li>
+                      }}
+                    >
+                      {m.content}
+                    </ReactMarkdown>
+                  )}
+                </div>
               </div>
             ))}
           </div>
