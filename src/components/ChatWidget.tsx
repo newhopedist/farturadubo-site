@@ -58,7 +58,7 @@ export default function ChatWidget() {
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end font-sans">
       {/* Janela do Chat */}
       {open && (
-        <div className="w-[350px] sm:w-[400px] h-[500px] bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden flex flex-col mb-4 transition-all duration-300 ease-in-out animate-in slide-in-from-bottom-5 fade-in">
+        <div className="w-[350px] sm:w-[400px] h-[600px] max-h-[80vh] bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden flex flex-col mb-4 transition-all duration-300 ease-in-out animate-in slide-in-from-bottom-5 fade-in">
           
           {/* Cabeçalho */}
           <div className="bg-gradient-to-r from-fartura-green-600 to-fartura-green-500 p-4 flex justify-between items-center shadow-sm">
@@ -130,12 +130,13 @@ export default function ChatWidget() {
 
           {/* Área de Input */}
           <div className="p-4 bg-white border-t border-gray-100">
-            <div className="flex gap-2 items-center bg-gray-50 px-3 py-2 rounded-full border border-gray-200 focus-within:border-fartura-green-500 focus-within:ring-1 focus-within:ring-fartura-green-500 transition-all shadow-inner">
+            <div className="flex gap-2 items-center bg-gray-50 px-4 py-3 rounded-2xl border border-gray-200 focus-within:border-fartura-green-500 focus-within:ring-1 focus-within:ring-fartura-green-500 transition-all">
               <input
-                className="flex-1 bg-transparent border-none focus:ring-0 text-gray-700 placeholder-gray-400 text-sm py-1"
+                className="flex-1 bg-transparent border-none outline-none focus:ring-0 text-gray-700 placeholder-gray-400 text-sm"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Digite sua mensagem..."
+                style={{ boxShadow: 'none' }} // Força remoção de sombra interna em alguns browsers
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' && !e.shiftKey) {
                     e.preventDefault()
@@ -145,16 +146,16 @@ export default function ChatWidget() {
               />
               <button
                 className={`
-                  p-2 rounded-full transition-all duration-200 flex-shrink-0
+                  p-2 rounded-xl transition-all duration-200 flex-shrink-0
                   ${!input.trim() || loading 
-                    ? 'bg-gray-200 text-gray-400 cursor-not-allowed' 
-                    : 'bg-fartura-green-600 text-white hover:bg-fartura-green-700 shadow-md hover:shadow-lg transform hover:-translate-y-0.5'
+                    ? 'text-gray-400 cursor-not-allowed' 
+                    : 'text-fartura-green-600 hover:bg-fartura-green-50 hover:text-fartura-green-700'
                   }
                 `}
                 onClick={send}
                 disabled={!input.trim() || loading}
               >
-                <svg className="w-5 h-5 translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+                <svg className="w-6 h-6 transform rotate-90" fill="currentColor" viewBox="0 0 20 20"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" /></svg>
               </button>
             </div>
             <div className="text-center mt-2">

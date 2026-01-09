@@ -120,15 +120,6 @@ export default function RootLayout({
         <Header />
         {children}
         <ChatWidget />
-        <a
-          href="https://wa.me/5585991289449?text=Olá,%20tenho%20interesse%20nos%20fertilizantes%20FARTURADUBO"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Abrir conversa no WhatsApp"
-          className="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white px-4 py-3 rounded-full shadow-lg flex items-center space-x-2"
-        >
-          <span>WhatsApp</span>
-        </a>
         <Footer />
       </body>
     </html>
