@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-
 import ReactMarkdown from 'react-markdown'
 
 export default function ChatWidget() {
@@ -56,68 +55,132 @@ export default function ChatWidget() {
   }
 
   return (
-    <div className="fixed bottom-6 left-6 z-50">
-      {!open && (
-        <button
-          className="bg-fartura-green-600 hover:bg-fartura-green-700 text-white px-4 py-3 rounded-full shadow-lg flex items-center gap-2"
-          onClick={() => setOpen(true)}
-        >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 8h10M7 12h6m8 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          Atendente
-        </button>
-      )}
-
+    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end font-sans">
+      {/* Janela do Chat */}
       {open && (
-        <div className="w-80 md:w-96 bg-white rounded-xl shadow-2xl border border-fartura-green-200 overflow-hidden">
-          <div className="bg-fartura-green-600 text-white p-3 flex justify-between items-center">
-            <div className="font-semibold">Atendente FARTURADUBO</div>
-            <button className="text-white/90" onClick={() => setOpen(false)}>✕</button>
+        <div className="w-[350px] sm:w-[400px] h-[500px] bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden flex flex-col mb-4 transition-all duration-300 ease-in-out animate-in slide-in-from-bottom-5 fade-in">
+          
+          {/* Cabeçalho */}
+          <div className="bg-gradient-to-r from-fartura-green-600 to-fartura-green-500 p-4 flex justify-between items-center shadow-sm">
+            <div className="flex items-center gap-3">
+              <div className="bg-white p-1.5 rounded-full shadow-inner">
+                {/* Avatar Simples */}
+                <span className="text-xl">🌱</span>
+              </div>
+              <div>
+                <h3 className="font-bold text-white text-lg leading-tight">Esperança</h3>
+                <div className="flex items-center gap-1.5">
+                  <span className="w-2 h-2 bg-green-300 rounded-full animate-pulse"></span>
+                  <span className="text-green-50 text-xs font-medium">Online agora</span>
+                </div>
+              </div>
+            </div>
+            <button 
+              className="text-white/80 hover:text-white hover:bg-white/10 p-2 rounded-full transition-colors" 
+              onClick={() => setOpen(false)}
+              aria-label="Fechar chat"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
           </div>
-          <div className="h-64 overflow-y-auto p-3 space-y-2">
+
+          {/* Área de Mensagens */}
+          <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50 scroll-smooth">
             {messages.map((m, i) => (
-              <div key={i} className={m.role === 'user' ? 'text-right' : 'text-left'}>
-                <div className={
-                  m.role === 'user'
-                    ? 'inline-block bg-fartura-green-600 text-white px-3 py-2 rounded-lg text-left'
-                    : 'inline-block bg-fartura-green-50 text-gray-800 px-3 py-2 rounded-lg border border-fartura-green-200 text-left prose prose-sm max-w-none'
-                }>
+              <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+                <div className={`
+                  max-w-[85%] px-4 py-3 rounded-2xl shadow-sm relative text-sm leading-relaxed
+                  ${m.role === 'user'
+                    ? 'bg-fartura-green-600 text-white rounded-br-none'
+                    : 'bg-white text-gray-800 border border-gray-100 rounded-bl-none'
+                  }
+                `}>
                   {m.role === 'user' ? (
                     m.content
                   ) : (
                     <ReactMarkdown
                       components={{
-                        p: ({children}) => <p className="mb-1 last:mb-0">{children}</p>,
-                        strong: ({children}) => <span className="font-bold text-fartura-green-800">{children}</span>,
-                        ul: ({children}) => <ul className="list-disc pl-4 mb-2">{children}</ul>,
-                        li: ({children}) => <li className="mb-0.5">{children}</li>
+                        p: ({children}) => <p className="mb-2 last:mb-0">{children}</p>,
+                        strong: ({children}) => <span className="font-bold text-fartura-green-700">{children}</span>,
+                        ul: ({children}) => <ul className="list-disc pl-4 mb-2 space-y-1">{children}</ul>,
+                        li: ({children}) => <li className="">{children}</li>,
+                        a: ({children, href}) => <a href={href} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">{children}</a>
                       }}
                     >
                       {m.content}
                     </ReactMarkdown>
                   )}
+                  {/* Horário (fictício para visual) */}
+                  <div className={`text-[10px] mt-1 text-right opacity-70 ${m.role === 'user' ? 'text-green-100' : 'text-gray-400'}`}>
+                    {new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                  </div>
                 </div>
               </div>
             ))}
+            {loading && (
+              <div className="flex justify-start">
+                <div className="bg-white px-4 py-3 rounded-2xl rounded-bl-none border border-gray-100 shadow-sm flex gap-1.5 items-center">
+                  <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></span>
+                  <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></span>
+                  <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></span>
+                </div>
+              </div>
+            )}
           </div>
-          <div className="p-3 border-t border-fartura-green-200 flex gap-2">
-            <input
-              className="flex-1 border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-fartura-green-500 focus:border-transparent text-fartura-green-700 placeholder-fartura-green-400"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              placeholder="Digite sua mensagem"
-              onKeyDown={(e) => {
-                if (e.key === 'Enter') send()
-              }}
-            />
-            <button
-              className="bg-fartura-green-600 hover:bg-fartura-green-700 text-white px-3 py-2 rounded-lg"
-              onClick={send}
-              disabled={loading}
-            >
-              {loading ? '...' : 'Enviar'}
-            </button>
+
+          {/* Área de Input */}
+          <div className="p-4 bg-white border-t border-gray-100">
+            <div className="flex gap-2 items-center bg-gray-50 px-3 py-2 rounded-full border border-gray-200 focus-within:border-fartura-green-500 focus-within:ring-1 focus-within:ring-fartura-green-500 transition-all shadow-inner">
+              <input
+                className="flex-1 bg-transparent border-none focus:ring-0 text-gray-700 placeholder-gray-400 text-sm py-1"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                placeholder="Digite sua mensagem..."
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault()
+                    send()
+                  }
+                }}
+              />
+              <button
+                className={`
+                  p-2 rounded-full transition-all duration-200 flex-shrink-0
+                  ${!input.trim() || loading 
+                    ? 'bg-gray-200 text-gray-400 cursor-not-allowed' 
+                    : 'bg-fartura-green-600 text-white hover:bg-fartura-green-700 shadow-md hover:shadow-lg transform hover:-translate-y-0.5'
+                  }
+                `}
+                onClick={send}
+                disabled={!input.trim() || loading}
+              >
+                <svg className="w-5 h-5 translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+              </button>
+            </div>
+            <div className="text-center mt-2">
+              <p className="text-[10px] text-gray-400">Powered by Farturadubo AI</p>
+            </div>
           </div>
         </div>
+      )}
+
+      {/* Botão Flutuante (Launcher) */}
+      {!open && (
+        <button
+          className="group relative flex items-center justify-center w-14 h-14 bg-gradient-to-br from-fartura-green-500 to-fartura-green-700 text-white rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-110 active:scale-95"
+          onClick={() => setOpen(true)}
+        >
+          <span className="absolute -top-1 -right-1 flex h-4 w-4">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-4 w-4 bg-green-500 border-2 border-white"></span>
+          </span>
+          <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+          
+          {/* Tooltip */}
+          <span className="absolute right-full mr-4 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+            Falar com Esperança
+          </span>
+        </button>
       )}
     </div>
   )
