@@ -5,20 +5,21 @@ function getRuleBasedResponse(userMessage: string): string | null {
   const message = userMessage.toLowerCase()
   
   // Pricing
-  if (message.includes('preço') || message.includes('valor') || message.includes('custo') || message.includes('preços')) {
-    if (message.includes('5kg') && !message.includes('25')) return 'Ureia 5kg - Ideal para pequenas áreas e testes. Valor sob consulta.'
-    if (message.includes('25kg') || (message.includes('25') && message.includes('kg'))) return 'Ureia 25kg - Perfeito para médios produtores. Valor sob consulta.'
-    if (message.includes('500kg')) return 'Ureia 500kg (Big Bag) - Para grandes propriedades. Valor sob consulta.'
-    if (message.includes('1000kg')) return 'Ureia 1000kg (Big Bag) - Para operações em larga escala. Valor sob consulta.'
-    return 'Nossa ureia está disponível nas embalagens: 5kg, 25kg, 500kg e 1000kg. Entre em contato para valores sob consulta.'
+  if (message.includes('preço') || message.includes('valor') || message.includes('custo') || message.includes('quanto') || message.includes('custa') || message.includes('orçamento')) {
+    if (message.includes('5kg') && !message.includes('25')) return 'Para o saco de 5kg, ideal para testes, o valor é sob consulta. Posso te passar o link do Mercado Livre?'
+    if (message.includes('25kg')) return 'O saco de 25kg tem um custo-benefício excelente. Para saber o valor atualizado e frete, preciso que você entre em contato ou veja em nosso site.'
+    if (message.includes('500kg') || message.includes('1000kg') || message.includes('big bag') || message.includes('tonelada') || message.includes('carga')) {
+      return 'Para grandes volumes como Big Bags de 1000kg ou cargas fechadas, temos uma tabela especial de atacado direto da fábrica! 🏭\n\nPor favor, chame nossa equipe comercial no WhatsApp para uma cotação personalizada sem compromisso:\n\n👉 **+55 85 99128-9449**'
+    }
+    return 'Nossos valores variam conforme a quantidade e embalagem (5kg, 25kg, 500kg, 1000kg). Para grandes volumes, temos preço de atacado direto da fábrica. Qual quantidade você precisa?'
   }
   
   // Product information
-  if (message.includes('produto') || message.includes('ureia') || message.includes('fertilizante')) {
-    if (message.includes('ureia')) {
-      return 'Nossa ureia é de alta qualidade com 45% de nitrogênio. Disponível nas embalagens: 5kg, 25kg, Big Bag 500kg e 1000kg. Ideal para todas as culturas!'
+  if (message.includes('produto') || message.includes('ureia') || message.includes('fertilizante') || message.includes('fartureia') || message.includes('serve') || message.includes('que é')) {
+    if (message.includes('fartureia') || message.includes('que é')) {
+      return 'A **Fartureia** é nosso fertilizante premium! 🌟\n\nÉ uma mistura inteligente de **41% Nitrogênio + 4% Enxofre**. Diferente da ureia comum, ela tem menos perda por volatilização e o enxofre ajuda a planta a absorver mais nutrientes.\n\nResultado: Mais vigor e produtividade na sua lavoura. 🚜'
     }
-    return 'Temos ureia de alta qualidade (45% N) disponível em embalagens de 5kg, 25kg, 500kg e 1000kg. Qual tamanho você precisa?'
+    return 'Temos a **Fartureia** (41% N + 4% S), que é superior à ureia comum. Disponível em sacos de 5kg, 25kg e Big Bags. Qual cultura você vai adubar?'
   }
   
   // Packaging information
