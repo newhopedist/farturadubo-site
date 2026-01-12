@@ -1,5 +1,6 @@
 import Hero from '@/components/Hero'
 import About from '@/components/About'
+import Comparison from '@/components/Comparison'
 import Benefits from '@/components/Benefits'
 import Products from '@/components/Products'
 import Contact from '@/components/Contact'
@@ -9,6 +10,7 @@ export default function Home() {
     <main className="min-h-screen bg-white">
       <Hero />
       <About />
+      <Comparison />
       <Benefits />
       <Products />
       <Contact />
