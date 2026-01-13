@@ -96,8 +96,8 @@ export default function Header() {
               </Link>
             ))}
             
-            {/* Botão do Carrinho */}
-            <Link
+            {/* Botão do Carrinho (Temporariamente desativado) */}
+            {/* <Link
               href="/carrinho"
               className="relative p-2 text-gray-700 hover:text-fartura-green-600 transition-colors"
             >
@@ -107,7 +107,7 @@ export default function Header() {
                   {cartItemsCount}
                 </span>
               )}
-            </Link>
+            </Link> */}
 
             {/* Link Admin */}
             <Link
@@ -130,8 +130,8 @@ export default function Header() {
           </div>
 
           <div className="md:hidden flex items-center space-x-4">
-            {/* Botão do Carrinho no Mobile */}
-            <Link
+            {/* Botão do Carrinho no Mobile (Temporariamente desativado) */}
+            {/* <Link
               href="/carrinho"
               className="relative p-2 text-gray-700 hover:text-fartura-green-600 transition-colors"
             >
@@ -141,7 +141,7 @@ export default function Header() {
                   {cartItemsCount}
                 </span>
               )}
-            </Link>
+            </Link> */}
             
             <button
               type="button"

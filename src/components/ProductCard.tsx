@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { ProductWithPrices } from '@/types/ecommerce'
 import { useCart } from '@/hooks/useCart'
-import { ShoppingCart, Plus, Minus } from 'lucide-react'
+import { ShoppingCart, Plus, Minus, MessageCircle } from 'lucide-react'
 
 interface ProductCardProps {
   product: ProductWithPrices
@@ -112,8 +112,8 @@ export default function ProductCard({ product }: ProductCardProps) {
           </div>
         </div>
 
-        {/* Seletor de Quantidade (escondido se EM BREVE) */}
-        {!isComingSoon && (
+        {/* Seletor de Quantidade (Temporariamente desativado) */}
+        {/* {!isComingSoon && (
           <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700 mb-2">Quantidade:</label>
             <div className="flex items-center space-x-3">
@@ -134,10 +134,10 @@ export default function ProductCard({ product }: ProductCardProps) {
               </button>
             </div>
           </div>
-        )}
+        )} */}
 
-        {/* Botão Adicionar ao Carrinho */}
-        <button
+        {/* Botão Adicionar ao Carrinho (Temporariamente desativado) */}
+        {/* <button
           onClick={handleAddToCart}
           disabled={isAddingToCart || selectedPrice.estoque === 0 || isComingSoon}
           className={`w-full font-medium py-3 px-4 rounded-md transition-colors duration-200 flex items-center justify-center space-x-2 ${
@@ -154,7 +154,28 @@ export default function ProductCard({ product }: ProductCardProps) {
               <span>{isAddingToCart ? 'Adicionando...' : 'Adicionar ao Carrinho'}</span>
             </>
           )}
-        </button>
+        </button> */}
+
+        {/* Botão Falar no WhatsApp */}
+        <a
+          href={`https://wa.me/5585991289449?text=Olá, tenho interesse no produto ${product.name} (${selectedPrice.peso})`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`w-full font-medium py-3 px-4 rounded-md transition-colors duration-200 flex items-center justify-center space-x-2 ${
+            isComingSoon 
+              ? 'bg-gray-300 cursor-not-allowed text-gray-500 pointer-events-none'
+              : 'bg-green-600 hover:bg-green-700 text-white'
+          }`}
+        >
+          {isComingSoon ? (
+            <span>Aguarde Lançamento</span>
+          ) : (
+            <>
+              <MessageCircle className="w-5 h-5" />
+              <span>Falar com Consultor</span>
+            </>
+          )}
+        </a>
 
         {selectedPrice.estoque === 0 && (
           <p className="text-red-500 text-sm mt-2 text-center">Produto indisponível</p>
