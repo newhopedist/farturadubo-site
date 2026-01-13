@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { getProducts } from '@/services/products'
 import { ProductWithPrices } from '@/types/ecommerce'
-import { Package, ShoppingCart } from 'lucide-react'
+import { Package, Eye } from 'lucide-react'
 
 export default function Products() {
   const [products, setProducts] = useState<ProductWithPrices[]>([])
@@ -131,7 +131,7 @@ export default function Products() {
                       href={`/produtos`}
                       className="bg-fartura-green-600 hover:bg-fartura-green-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors inline-flex items-center"
                     >
-                      <ShoppingCart className="w-4 h-4 mr-2" />
+                      <Eye className="w-4 h-4 mr-2" />
                       Ver Detalhes
                     </Link>
                   </div>

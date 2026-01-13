@@ -109,24 +109,24 @@ export default function Header() {
               )}
             </Link> */}
 
-            {/* Link Admin */}
-            <Link
+            {/* Link Admin (Temporariamente desativado) */}
+            {/* <Link
               href="/admin"
               className="text-gray-700 hover:text-fartura-green-600 transition-colors font-medium"
             >
               Admin
-            </Link>
+            </Link> */}
 
-            {/* Link Acompanhar Pedido */}
-            <Link
+            {/* Link Acompanhar Pedido (Temporariamente desativado) */}
+            {/* <Link
               href="/pedidos"
               className="text-gray-700 hover:text-fartura-green-600 transition-colors font-medium"
             >
               Acompanhar Pedido
-            </Link>
+            </Link> */}
 
-            {/* Sino de Notificações */}
-            <NotificationBell />
+            {/* Sino de Notificações (Temporariamente desativado) */}
+            {/* <NotificationBell /> */}
           </div>
 
           <div className="md:hidden flex items-center space-x-4">
