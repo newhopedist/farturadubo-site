@@ -98,7 +98,7 @@ export default function Comparison() {
                 </div>
               </div>
 
-              <div className="mt-12 p-6 bg-fartura-green-50 rounded-lg border border-fartura-green-100">
+              {/* <div className="mt-12 p-6 bg-fartura-green-50 rounded-lg border border-fartura-green-100">
                 <div className="flex items-start">
                   <Info className="w-6 h-6 text-fartura-green-600 mt-1 mr-3 flex-shrink-0" />
                   <div>
@@ -108,7 +108,7 @@ export default function Comparison() {
                     </p>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
 
