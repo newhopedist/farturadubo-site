@@ -3,21 +3,21 @@ import { Product, ProductPrice, ProductWithPrices } from '@/types/ecommerce'
 
 // Dados de fallback para quando o Supabase não estiver conectado ou falhar
 const FALLBACK_PRODUCTS: ProductWithPrices[] = [
-  {
-    id: 1,
-    name: 'FARTURAMAX',
-    description: 'Fertilizante foliar de alta performance, rico em macro e micronutrientes essenciais para o desenvolvimento vigoroso das plantas. Ideal para soja, milho e feijão.',
-    slug: 'farturamax',
-    category: 'fertilizante',
-    price: 0,
-    image_url: '/25KG.webp',
-    active: true,
-    created_at: new Date().toISOString(),
-    prices: [
-      { id: '1', produto_id: 1, peso: '5kg', preco: 0, estoque: 0, ativo: true },
-      { id: '2', produto_id: 1, peso: '25kg', preco: 0, estoque: 0, ativo: true }
-    ]
-  },
+  // {
+  //   id: 1,
+  //   name: 'FARTURAMAX',
+  //   description: 'Fertilizante foliar de alta performance, rico em macro e micronutrientes essenciais para o desenvolvimento vigoroso das plantas. Ideal para soja, milho e feijão.',
+  //   slug: 'farturamax',
+  //   category: 'fertilizante',
+  //   price: 0,
+  //   image_url: '/25KG.webp',
+  //   active: true,
+  //   created_at: new Date().toISOString(),
+  //   prices: [
+  //     { id: '1', produto_id: 1, peso: '5kg', preco: 0, estoque: 0, ativo: true },
+  //     { id: '2', produto_id: 1, peso: '25kg', preco: 0, estoque: 0, ativo: true }
+  //   ]
+  // },
   {
     id: 2,
     name: 'FARTUREIA',
@@ -29,8 +29,10 @@ const FALLBACK_PRODUCTS: ProductWithPrices[] = [
     active: true,
     created_at: new Date().toISOString(),
     prices: [
-      { id: '3', produto_id: 2, peso: '25kg', preco: 180.00, estoque: 200, ativo: true },
-      { id: '4', produto_id: 2, peso: '500kg', preco: 3400.00, estoque: 10, ativo: true }
+      { id: '3', produto_id: 2, peso: '5kg', preco: 180.00, estoque: 200, ativo: true },
+      { id: '4', produto_id: 2, peso: '25kg', preco: 3400.00, estoque: 10, ativo: true },
+      { id: '5', produto_id: 2, peso: '500kg', preco: 3400.00, estoque: 10, ativo: true },
+      { id: '6', produto_id: 2, peso: '1000kg', preco: 3400.00, estoque: 10, ativo: true }
     ]
   }
 ]

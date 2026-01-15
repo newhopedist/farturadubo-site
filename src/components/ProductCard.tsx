@@ -54,14 +54,24 @@ export default function ProductCard({ product }: ProductCardProps) {
     }
   }
 
+  const getProductImage = (peso: string) => {
+    switch (peso) {
+      case '5kg': return '/5KG.webp'
+      case '25kg': return '/25KG.webp'
+      case '500kg': return '/BIGBAG 500KG.webp'
+      case '1000kg': return '/BIGBAG 1000KG.webp'
+      default: return '/25KG.webp'
+    }
+  }
+
   return (
     <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
       {/* Imagem do Produto */}
-      <div className="relative h-48 bg-gray-100">
+      <div className="relative h-64 bg-white p-4">
         <img
-          src={product.category === 'fertilizante' ? '/25KG.webp' : '/Packs.webp'}
-          alt={product.name}
-          className="w-full h-full object-cover"
+          src={getProductImage(selectedPrice.peso)}
+          alt={`${product.name} ${selectedPrice.peso}`}
+          className="w-full h-full object-contain"
         />
         <div className="absolute top-2 right-2">
           <span className={`px-2 py-1 rounded-full text-xs font-medium ${getWeightBadgeColor(selectedPrice.peso)}`}>

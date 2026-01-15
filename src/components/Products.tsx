@@ -39,6 +39,16 @@ export default function Products() {
     }
   }
 
+  const getProductImage = (peso: string) => {
+    switch (peso) {
+      case '5kg': return '/5KG.webp'
+      case '25kg': return '/25KG.webp'
+      case '500kg': return '/BIGBAG 500KG.webp'
+      case '1000kg': return '/BIGBAG 1000KG.webp'
+      default: return '/25KG.webp'
+    }
+  }
+
   if (loading) {
     return (
       <section id="products" className="py-20 bg-gray-50 scroll-mt-24">
@@ -94,7 +104,7 @@ export default function Products() {
                 <div className="h-48 bg-white flex items-center justify-center">
                   <div className="w-40 h-28 relative">
                     <Image
-                      src={product.category === 'fertilizante' ? '/25KG.webp' : '/Packs.webp'}
+                      src={getProductImage(product.prices[0]?.peso || '25kg')}
                       alt={product.name}
                       fill
                       sizes="(min-width:1024px) 160px, 160px"
@@ -152,7 +162,7 @@ export default function Products() {
               <div className="flex items-start gap-6">
                 <div className="w-40 h-28 relative flex-shrink-0">
                   <Image 
-                    src={selectedProduct.category === 'fertilizante' ? '/25KG.webp' : '/Packs.webp'} 
+                    src={getProductImage(selectedProduct.prices[0]?.peso || '25kg')}
                     alt={selectedProduct.name} 
                     fill 
                     sizes="160px" 
