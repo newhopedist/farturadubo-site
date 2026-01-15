@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ArrowLeft, CheckCircle2, ShoppingCart, MessageCircle, Clock, Ruler, Package } from 'lucide-react'
 import { productContents } from '@/lib/product-content'
+import BeforeAfterSlider from '@/components/BeforeAfterSlider'
 
 // Função auxiliar para mapear slugs para imagens (já que as imagens não estão no arquivo de conteúdo)
 const getProductImage = (slug: string) => {
@@ -170,35 +171,13 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                       <p className="text-sm text-gray-800 font-medium">{content.results.after}</p>
                     </div>
                   </div>
-                  
-                  {/* Imagem de Exemplo (Placeholder visual) */}
-                  <div className="relative h-64 w-full rounded-xl overflow-hidden group">
-                    {/* Imagem Base (Depois) */}
-                    <div className="absolute inset-0 w-full h-full">
-                      <Image 
-                        src="/panta com ureia.webp"
-                        alt="Resultado na planta - Depois"
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    
-                    {/* Imagem Sobreposta com Filtro (Antes) */}
-                    <div className="absolute inset-0 w-1/2 h-full border-r-2 border-white/50 bg-gray-200/10 backdrop-sepia-[.6] backdrop-brightness-90 overflow-hidden">
-                      <div className="absolute inset-0 bg-yellow-900/20 mix-blend-multiply"></div>
-                      <div className="absolute bottom-4 left-4 bg-black/60 text-white text-xs font-bold px-2 py-1 rounded backdrop-blur-sm">
-                        ANTES
-                      </div>
-                    </div>
 
-                    <div className="absolute bottom-4 right-4 bg-green-600/80 text-white text-xs font-bold px-2 py-1 rounded backdrop-blur-sm">
-                      DEPOIS
-                    </div>
-
-                    <div className="absolute top-4 left-1/2 -translate-x-1/2 bg-white/90 text-gray-800 text-[10px] font-bold px-3 py-1 rounded-full shadow-lg z-10">
-                      ARRASTE PARA COMPARAR (Simulação)
-                    </div>
-                  </div>
+                  {/* Componente Slider Interativo */}
+                  <BeforeAfterSlider 
+                    beforeImage="/panta com ureia.webp"
+                    afterImage="/panta com ureia.webp"
+                    alt="Resultado na planta"
+                  />
                 </div>
               </div>
 
