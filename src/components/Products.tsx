@@ -51,10 +51,10 @@ export default function Products() {
 
   // Lista de produtos para exibição manual baseada nas embalagens da Fartureia
   const displayProducts = [
-    { id: 'p5', name: 'FARTUREIA', peso: '5kg', image: '/5kg.webp', price: 29.90 },
-    { id: 'p25', name: 'FARTUREIA', peso: '25kg', image: '/25kg.webp', price: 110.00 },
-    { id: 'p500', name: 'FARTUREIA', peso: '500kg', image: '/bigbag-500kg.webp', price: 1575.00 },
-    { id: 'p1000', name: 'FARTUREIA', peso: '1000kg', image: '/bigbag-1000kg.webp', price: 3150.00 },
+    { id: 'p5', name: 'FARTUREIA', peso: '5kg', image: '/5kg.webp', price: 29.90, slug: 'fartureia-5kg' },
+    { id: 'p25', name: 'FARTUREIA', peso: '25kg', image: '/25kg.webp', price: 110.00, slug: 'fartureia-25kg' },
+    { id: 'p500', name: 'FARTUREIA', peso: '500kg', image: '/bigbag-500kg.webp', price: 1575.00, slug: 'fartureia-bigbag-500kg' },
+    { id: 'p1000', name: 'FARTUREIA', peso: '1000kg', image: '/bigbag-1000kg.webp', price: 3150.00, slug: 'fartureia-bigbag-1000kg' },
   ]
 
   if (loading) {
@@ -144,7 +144,7 @@ export default function Products() {
                     </div>
 
                     <Link
-                      href={`/produtos`}
+                      href={`/produtos/${item.slug}`}
                       className="w-full bg-white border-2 border-fartura-green-600 text-fartura-green-600 hover:bg-fartura-green-600 hover:text-white py-2 rounded-lg text-sm font-bold transition-all duration-200 flex items-center justify-center"
                     >
                       <Eye className="w-4 h-4 mr-2" />
