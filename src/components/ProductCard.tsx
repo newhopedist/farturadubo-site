@@ -56,11 +56,11 @@ export default function ProductCard({ product }: ProductCardProps) {
 
   const getProductImage = (peso: string) => {
     switch (peso) {
-      case '5kg': return '/5KG.webp'
-      case '25kg': return '/25KG.webp'
-      case '500kg': return '/BIGBAG 500KG.webp'
-      case '1000kg': return '/BIGBAG 1000KG.webp'
-      default: return '/25KG.webp'
+      case '5kg': return '/5kg.webp'
+      case '25kg': return '/25kg.webp'
+      case '500kg': return '/bigbag-500kg.webp'
+      case '1000kg': return '/bigbag-1000kg.webp'
+      default: return '/25kg.webp'
     }
   }
 
