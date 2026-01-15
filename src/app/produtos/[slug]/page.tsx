@@ -51,7 +51,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                 <div className="absolute -bottom-4 -right-4 w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-fartura-green-500 shadow-xl overflow-hidden bg-white z-10 group cursor-zoom-in">
                   <div className="relative w-full h-full">
                     <Image
-                      src="/IMG-PRODUTO-UREIA.webp"
+                      src="/img-produto-ureia.webp"
                       alt="Detalhe do Grânulo Fartureia"
                       fill
                       className="object-cover scale-150 group-hover:scale-[2.0] transition-transform duration-500"
