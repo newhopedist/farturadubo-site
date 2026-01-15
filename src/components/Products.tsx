@@ -137,7 +137,9 @@ export default function Products() {
                     <div className="flex justify-between items-end">
                       <div>
                         <p className="text-xs text-gray-500">A partir de</p>
-                        <p className="text-xl font-bold text-fartura-green-600">R$ {item.price.toFixed(2)}</p>
+                        <p className="text-xl font-bold text-fartura-green-600">
+                          {item.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+                        </p>
                       </div>
                     </div>
 
@@ -189,7 +191,9 @@ export default function Products() {
                       <span className={`px-2 py-1 rounded-full text-xs font-medium ${getWeightBadgeColor(price.peso)}`}>
                         {price.peso}
                       </span>
-                      <span className="font-bold text-fartura-green-600">R$ {price.preco.toFixed(2)}</span>
+                      <span className="font-bold text-fartura-green-600">
+                        {price.preco.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+                      </span>
                     </div>
                   ))}
                 </div>

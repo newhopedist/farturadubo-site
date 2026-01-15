@@ -112,7 +112,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         <div className="mb-4">
           <div className="flex items-center justify-between mb-2">
             <span className={`text-2xl font-bold ${isComingSoon ? 'text-gray-500' : 'text-fartura-green-600'}`}>
-              {isComingSoon ? 'EM BREVE' : `R$ ${selectedPrice.preco.toFixed(2)}`}
+              {isComingSoon ? 'EM BREVE' : selectedPrice.preco.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
             </span>
             {!isComingSoon && (
               <span className="text-sm text-gray-500">
