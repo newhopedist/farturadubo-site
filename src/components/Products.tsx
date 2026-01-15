@@ -49,6 +49,14 @@ export default function Products() {
     }
   }
 
+  // Lista de produtos para exibição manual baseada nas embalagens da Fartureia
+  const displayProducts = [
+    { id: 'p5', name: 'FARTUREIA', peso: '5kg', image: '/5kg.webp', price: 180.00 },
+    { id: 'p25', name: 'FARTUREIA', peso: '25kg', image: '/25kg.webp', price: 180.00 },
+    { id: 'p500', name: 'FARTUREIA', peso: '500kg', image: '/bigbag-500kg.webp', price: 3400.00 },
+    { id: 'p1000', name: 'FARTUREIA', peso: '1000kg', image: '/bigbag-1000kg.webp', price: 3400.00 },
+  ]
+
   if (loading) {
     return (
       <section id="products" className="py-20 bg-gray-50 scroll-mt-24">
@@ -98,48 +106,44 @@ export default function Products() {
             <p className="text-gray-600">Em breve teremos novos produtos em estoque.</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {products.map((product) => (
-              <div key={product.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                <div className="h-48 bg-white flex items-center justify-center">
-                  <div className="w-40 h-28 relative">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {displayProducts.map((item) => (
+              <div key={item.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow group">
+                <div className="h-56 bg-white flex items-center justify-center p-4 relative">
+                  <div className="w-full h-full relative">
                     <Image
-                      src={getProductImage(product.prices[0]?.peso || '25kg')}
-                      alt={product.name}
+                      src={item.image}
+                      alt={`${item.name} ${item.peso}`}
                       fill
-                      sizes="(min-width:1024px) 160px, 160px"
-                      className="object-contain"
+                      sizes="(min-width:1024px) 250px, 200px"
+                      className="object-contain group-hover:scale-105 transition-transform duration-300"
                       loading="lazy"
                       placeholder="blur"
                       blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYwIiBoZWlnaHQ9IjExMiIgdmlld0JveD0iMCAwIDE2MCAxMTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxNjAiIGhlaWdodD0iMTEyIiBmaWxsPSIjZjBmOWZmIi8+Cjx0ZXh0IHg9IjgwIiB5PSI2MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEyIiBmaWxsPSIjNjQ3NDhiIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5GQVJUVVJBRFVCTzwvdGV4dD4KPC9zdmc+"
                     />
                   </div>
-                </div>
-                <div className="px-6 pt-4">
-                  <h3 className="text-xl font-bold text-fartura-green-800">{product.name}</h3>
+                  <div className="absolute top-2 right-2">
+                    <span className={`px-3 py-1 rounded-full text-xs font-bold ${getWeightBadgeColor(item.peso)} shadow-sm`}>
+                      {item.peso}
+                    </span>
+                  </div>
                 </div>
                 
-                <div className="p-6">
-                  <p className="text-gray-600 mb-3">{product.description}</p>
+                <div className="p-5 border-t border-gray-100">
+                  <h3 className="text-lg font-bold text-fartura-green-800 mb-1">{item.name}</h3>
+                  <p className="text-gray-500 text-sm mb-4">Ureia Agrícola Premium</p>
                   
-                  <div className="mb-4">
-                    <span className="text-sm font-semibold text-fartura-green-800">Tamanhos disponíveis:</span>
-                    <div className="flex flex-wrap gap-2 mt-2">
-                      {product.prices.map((price) => (
-                        <span
-                          key={price.id}
-                          className={`px-2 py-1 rounded-full text-xs font-medium ${getWeightBadgeColor(price.peso)}`}
-                        >
-                          {price.peso} - R$ {price.preco.toFixed(2)}
-                        </span>
-                      ))}
+                  <div className="flex flex-col gap-3">
+                    <div className="flex justify-between items-end">
+                      <div>
+                        <p className="text-xs text-gray-500">A partir de</p>
+                        <p className="text-xl font-bold text-fartura-green-600">R$ {item.price.toFixed(2)}</p>
+                      </div>
                     </div>
-                  </div>
-                  
-                  <div className="flex justify-between items-center">
+
                     <Link
                       href={`/produtos`}
-                      className="bg-fartura-green-600 hover:bg-fartura-green-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors inline-flex items-center"
+                      className="w-full bg-white border-2 border-fartura-green-600 text-fartura-green-600 hover:bg-fartura-green-600 hover:text-white py-2 rounded-lg text-sm font-bold transition-all duration-200 flex items-center justify-center"
                     >
                       <Eye className="w-4 h-4 mr-2" />
                       Ver Detalhes
