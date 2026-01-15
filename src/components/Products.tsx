@@ -51,10 +51,10 @@ export default function Products() {
 
   // Lista de produtos para exibição manual baseada nas embalagens da Fartureia
   const displayProducts = [
-    { id: 'p5', name: 'FARTUREIA', peso: '5kg', image: '/5kg.webp', price: 180.00 },
-    { id: 'p25', name: 'FARTUREIA', peso: '25kg', image: '/25kg.webp', price: 180.00 },
-    { id: 'p500', name: 'FARTUREIA', peso: '500kg', image: '/bigbag-500kg.webp', price: 3400.00 },
-    { id: 'p1000', name: 'FARTUREIA', peso: '1000kg', image: '/bigbag-1000kg.webp', price: 3400.00 },
+    { id: 'p5', name: 'FARTUREIA', peso: '5kg', image: '/5kg.webp', price: 29.90 },
+    { id: 'p25', name: 'FARTUREIA', peso: '25kg', image: '/25kg.webp', price: 110.00 },
+    { id: 'p500', name: 'FARTUREIA', peso: '500kg', image: '/bigbag-500kg.webp', price: 1575.00 },
+    { id: 'p1000', name: 'FARTUREIA', peso: '1000kg', image: '/bigbag-1000kg.webp', price: 3150.00 },
   ]
 
   if (loading) {
