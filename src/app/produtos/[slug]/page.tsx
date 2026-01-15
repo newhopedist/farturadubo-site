@@ -172,17 +172,31 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                   </div>
                   
                   {/* Imagem de Exemplo (Placeholder visual) */}
-                  <div className="relative h-48 w-full rounded-xl overflow-hidden">
-                    <Image 
-                      src="/panta com ureia.webp" // Usando a imagem que temos
-                      alt="Resultado na planta"
-                      fill
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
-                      <p className="text-white font-medium text-sm">
-                        * Imagem ilustrativa de resultado real em campo.
-                      </p>
+                  <div className="relative h-64 w-full rounded-xl overflow-hidden group">
+                    {/* Imagem Base (Depois) */}
+                    <div className="absolute inset-0 w-full h-full">
+                      <Image 
+                        src="/panta com ureia.webp"
+                        alt="Resultado na planta - Depois"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    
+                    {/* Imagem Sobreposta com Filtro (Antes) */}
+                    <div className="absolute inset-0 w-1/2 h-full border-r-2 border-white/50 bg-gray-200/10 backdrop-sepia-[.6] backdrop-brightness-90 overflow-hidden">
+                      <div className="absolute inset-0 bg-yellow-900/20 mix-blend-multiply"></div>
+                      <div className="absolute bottom-4 left-4 bg-black/60 text-white text-xs font-bold px-2 py-1 rounded backdrop-blur-sm">
+                        ANTES
+                      </div>
+                    </div>
+
+                    <div className="absolute bottom-4 right-4 bg-green-600/80 text-white text-xs font-bold px-2 py-1 rounded backdrop-blur-sm">
+                      DEPOIS
+                    </div>
+
+                    <div className="absolute top-4 left-1/2 -translate-x-1/2 bg-white/90 text-gray-800 text-[10px] font-bold px-3 py-1 rounded-full shadow-lg z-10">
+                      ARRASTE PARA COMPARAR (Simulação)
                     </div>
                   </div>
                 </div>

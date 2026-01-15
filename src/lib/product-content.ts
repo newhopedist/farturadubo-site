@@ -62,7 +62,8 @@ export const productContents: Record<string, ProductDetailContent> = {
         'Vasos Pequenos (Violetas, Samambaias): 1 colher de chá rasa a cada 15 dias.',
         'Vasos Grandes e Arbustos: 1 colher de sopa cheia espalhada na terra (longe do caule).',
         'Árvores Frutíferas (Limão, Manga, Acerola): 1 copo americano (150g) ao redor da projeção da copa (sombra da árvore).',
-        'Gramados: 1 punhado espalhado uniformemente por metro quadrado.'
+        'Gramados: 1 punhado espalhado uniformemente por metro quadrado.',
+        'Armazenamento: Fechar bem a embalagem após o uso e guardar em local seco e sombreado.'
       ]
     },
     results: {
@@ -110,7 +111,8 @@ export const productContents: Record<string, ProductDetailContent> = {
         'Milho e Feijão: Aplicar 150kg a 200kg por hectare em cobertura (V4-V6).',
         'Hortaliças: Parcelar a aplicação conforme a necessidade da cultura.',
         'Capineiras: Aplicar após cada corte para rebrota vigorosa.',
-        'Dica: Aplique preferencialmente com solo úmido para máxima absorção.'
+        'Dica: Aplique preferencialmente com solo úmido para máxima absorção.',
+        'Armazenamento: Manter em galpão coberto, ventilado e sobre estrados de madeira. Não empilhar mais de 10 sacos.'
       ]
     },
     results: {
@@ -158,7 +160,7 @@ export const productContents: Record<string, ProductDetailContent> = {
         'Consulte sempre seu Engenheiro Agrônomo.',
         'Compatível com agricultura de precisão e taxa variável.',
         'Ideal para cobertura em área total.',
-        'Armazenamento: Manter em local coberto e seco, sobre paletes.'
+        'Armazenamento: Armazenar em local coberto, seco e ventilado. Empilhamento máximo de 3 big bags (com segurança).'
       ]
     },
     results: {
@@ -206,7 +208,8 @@ export const productContents: Record<string, ProductDetailContent> = {
         'Uso exclusivo profissional/agrícola.',
         'Necessário equipamento de guincho/bag para movimentação.',
         'Ideal para adubação de base ou cobertura em larga escala.',
-        'Consulte condições para entrega na fazenda (CIF).'
+        'Consulte condições para entrega na fazenda (CIF).',
+        'Armazenamento: Armazenar em galpão fechado, livre de umidade. Evitar exposição direta ao sol.'
       ]
     },
     results: {
