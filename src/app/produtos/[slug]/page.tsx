@@ -47,6 +47,20 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                   className="object-contain hover:scale-105 transition-transform duration-500"
                   priority
                 />
+                {/* Destaque do Grânulo */}
+                <div className="absolute -bottom-4 -right-4 w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-fartura-green-500 shadow-xl overflow-hidden bg-white z-10 group cursor-zoom-in">
+                  <div className="relative w-full h-full">
+                    <Image
+                      src="/IMG-PRODUTO-UREIA.webp"
+                      alt="Detalhe do Grânulo Fartureia"
+                      fill
+                      className="object-cover scale-150 group-hover:scale-[2.0] transition-transform duration-500"
+                    />
+                    <div className="absolute bottom-2 left-0 right-0 text-center bg-black/60 text-white text-[10px] font-bold py-1 backdrop-blur-sm">
+                      TECNOLOGIA N+S
+                    </div>
+                  </div>
+                </div>
               </div>
 
               {/* Especificações Rápidas */}
