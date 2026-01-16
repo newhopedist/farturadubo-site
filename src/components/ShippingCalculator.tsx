@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { Truck, Search, AlertCircle } from 'lucide-react'
 
-export default function ShippingCalculator() {
+export default function ShippingCalculator({ productSlug }: { productSlug: string }) {
   const [cep, setCep] = useState('')
   const [loading, setLoading] = useState(false)
   const [shippingOptions, setShippingOptions] = useState<any[]>([])
@@ -21,17 +21,26 @@ export default function ShippingCalculator() {
     setShippingOptions([])
 
     try {
-      // TODO: Aqui vamos chamar a API do Melhor Envio quando tivermos o Token
-      // Simulando uma resposta por enquanto para você ver o visual
-      await new Promise(resolve => setTimeout(resolve, 1500))
-      
-      setShippingOptions([
-        { name: 'Jadlog .Package', price: 22.50, days: 5 },
-        { name: 'Correios PAC', price: 28.90, days: 7 },
-        { name: 'Correios SEDEX', price: 45.00, days: 2 },
-      ])
+      const response = await fetch('/api/shipping', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          cep: cep.replace(/\D/g, ''),
+          productSlug
+        })
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Erro ao calcular frete')
+      }
+
+      setShippingOptions(data.options || [])
     } catch (err) {
-      setError('Erro ao calcular frete. Tente novamente.')
+      setError('Erro ao calcular frete. Verifique o CEP e tente novamente.')
     } finally {
       setLoading(false)
     }

@@ -126,7 +126,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
               {/* Calculadora de Frete */}
               {content.cta.type === 'mercadolivre' && (
                 <div className="mb-8">
-                  <ShippingCalculator />
+                  <ShippingCalculator productSlug={content.slug} />
                 </div>
               )}
 
