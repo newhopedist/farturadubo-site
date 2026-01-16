@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ArrowLeft, CheckCircle2, ShoppingCart, MessageCircle, Clock, Ruler, Package } from 'lucide-react'
 import { productContents } from '@/lib/product-content'
+import { getPaymentLink } from '@/lib/payment-links'
 import BeforeAfterSlider from '@/components/BeforeAfterSlider'
 
 // Função auxiliar para mapear slugs para imagens (já que as imagens não estão no arquivo de conteúdo)
@@ -16,6 +17,7 @@ const getProductImage = (slug: string) => {
 
 export default function ProductPage({ params }: { params: { slug: string } }) {
   const content = productContents[params.slug]
+  const paymentLink = getPaymentLink(params.slug)
 
   if (!content) {
     return notFound()
@@ -123,12 +125,12 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
               {/* Botão de Ação (Sticky em mobile se quisesse, mas vamos deixar simples) */}
               <div className="mt-auto pt-8 border-t border-gray-100">
                 <a
-                  href={content.cta.link}
+                  href={paymentLink}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`w-full py-4 px-8 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-center ${
                     content.cta.type === 'mercadolivre'
-                      ? 'bg-yellow-400 text-fartura-green-900 hover:bg-yellow-500'
+                      ? 'bg-blue-500 text-white hover:bg-blue-600' // Azul Mercado Pago
                       : 'bg-green-600 text-white hover:bg-green-700'
                   }`}
                 >
@@ -137,7 +139,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                   ) : (
                     <MessageCircle className="w-6 h-6 mr-3" />
                   )}
-                  {content.cta.text}
+                  {content.cta.type === 'mercadolivre' ? 'COMPRAR COM MERCADO PAGO' : content.cta.text}
                 </a>
                 <p className="text-center text-xs text-gray-400 mt-4">
                   Compra segura e entrega garantida para todo o Brasil.
