@@ -91,7 +91,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
               </span>
               
               <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
-                {content.title}
+                {content.title} (Novo Checkout)
               </h1>
               <p className="text-xl text-gray-500 mb-8 font-light">
                 {content.subtitle}
