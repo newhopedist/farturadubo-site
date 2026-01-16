@@ -95,12 +95,21 @@ export default function ShippingCalculator({ productSlug }: { productSlug: strin
       {shippingOptions.length > 0 && (
         <div className="space-y-3 animate-fadeIn">
           {shippingOptions.map((option, index) => (
-            <div key={index} className="flex justify-between items-center bg-white p-3 rounded-lg border border-gray-100 shadow-sm">
-              <div>
-                <p className="font-bold text-gray-800 text-sm">{option.name}</p>
-                <p className="text-xs text-gray-500">Chega em até {option.days} dias úteis</p>
+            <div key={index} className="flex justify-between items-center bg-white p-3 rounded-lg border border-gray-100 shadow-sm hover:border-fartura-green-200 transition-colors">
+              <div className="flex items-center">
+                {option.logo && (
+                  <img 
+                    src={option.logo} 
+                    alt={option.name} 
+                    className="h-8 w-auto mr-3 object-contain"
+                  />
+                )}
+                <div>
+                  <p className="font-bold text-gray-800 text-sm">{option.name}</p>
+                  <p className="text-xs text-gray-500">Chega em até {option.days} dias úteis</p>
+                </div>
               </div>
-              <p className="font-bold text-fartura-green-700">
+              <p className="font-bold text-fartura-green-700 text-lg">
                 R$ {option.price.toFixed(2).replace('.', ',')}
               </p>
             </div>
