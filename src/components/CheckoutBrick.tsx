@@ -73,12 +73,19 @@ export default function CheckoutBrick({ amount, description, onPaymentComplete }
     )
   }
 
-  if (!preferenceId) {
+  // Se não temos preferenceId mas não está carregando, mostra erro
+  // MAS apenas se tivermos a chave pública. Se não tiver chave, o erro de configuração já aparece acima.
+  if (!preferenceId && PUBLIC_KEY) {
     return (
       <div className="text-center text-red-500 p-4">
-        Erro ao carregar checkout. Tente novamente.
+        Erro ao carregar checkout. Tente atualizar a página.
       </div>
     )
+  }
+
+  // Verifica se o componente Payment está disponível (proteção extra)
+  if (!Payment) {
+     return null;
   }
 
   return (
