@@ -39,8 +39,9 @@ export default function ShippingCalculator({ productSlug }: { productSlug: strin
       }
 
       setShippingOptions(data.options || [])
-    } catch (err) {
-      setError('Erro ao calcular frete. Verifique o CEP e tente novamente.')
+    } catch (err: any) {
+      console.error('Erro detalhado:', err)
+      setError(err.message || 'Erro ao calcular frete. Verifique o CEP e tente novamente.')
     } finally {
       setLoading(false)
     }
