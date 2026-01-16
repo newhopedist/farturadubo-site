@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { ArrowLeft, CheckCircle2, ShoppingCart, MessageCircle, Clock, Ruler, Package } from 'lucide-react'
 import { productContents } from '@/lib/product-content'
 import { getPaymentLink } from '@/lib/payment-links'
+import ShippingCalculator from '@/components/ShippingCalculator'
 import BeforeAfterSlider from '@/components/BeforeAfterSlider'
 
 // Função auxiliar para mapear slugs para imagens (já que as imagens não estão no arquivo de conteúdo)
@@ -122,7 +123,14 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                 </div>
               </div>
 
-              {/* Botão de Ação (Sticky em mobile se quisesse, mas vamos deixar simples) */}
+              {/* Calculadora de Frete */}
+              {content.cta.type === 'mercadolivre' && (
+                <div className="mb-8">
+                  <ShippingCalculator />
+                </div>
+              )}
+
+              {/* Botão de Ação */}
               <div className="mt-auto pt-8 border-t border-gray-100">
                 <a
                   href={paymentLink}
