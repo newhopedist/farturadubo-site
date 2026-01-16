@@ -22,6 +22,11 @@ export async function POST(request: Request) {
     const originCep = process.env.ORIGIN_CEP || '60000000'
     const url = process.env.MELHOR_ENVIO_URL || 'https://melhorenvio.com.br/api/v2/me/shipment/calculate'
 
+    if (!token) {
+      console.error('ERRO: Token do Melhor Envio não configurado')
+      return NextResponse.json({ error: 'Erro de configuração no servidor (Token ausente)' }, { status: 500 })
+    }
+
     // Monta o payload para o Melhor Envio
     const payload = {
       from: { postal_code: originCep },
