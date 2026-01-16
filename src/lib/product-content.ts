@@ -223,7 +223,7 @@ export const productContents: Record<string, ProductDetailContent> = {
       days: 0
     },
     cta: {
-      text: 'COTAR CARGA FECHADA',
+      text: 'COTAR CARGA FECHADA - R$ 3.150,00/Tn',
       link: 'https://wa.me/5585991289449?text=Olá,%20tenho%20interesse%20em%20Carga%20Fechada%20de%20BigBags%201Ton',
       type: 'whatsapp'
     },
