@@ -107,7 +107,10 @@ export default function ShippingCalculator({ productSlug }: { productSlug: strin
         </div>
       )}
       
-      <div className="mt-4 text-center">
+      <div className="mt-4 flex flex-col items-center gap-2">
+        <p className="text-[10px] text-gray-400">
+          Cotação em tempo real via Melhor Envio
+        </p>
         <a 
           href="https://buscacepinter.correios.com.br/app/endereco/index.php" 
           target="_blank" 
