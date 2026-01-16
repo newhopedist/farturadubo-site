@@ -17,6 +17,7 @@ export async function POST(request: Request) {
 
     const preference = new Preference(client)
 
+    // @ts-ignore
     const result = await preference.create({
       body: {
         items: [
@@ -26,7 +27,7 @@ export async function POST(request: Request) {
             quantity: quantity,
             unit_price: Number(price),
             currency_id: 'BRL',
-          } as any, // Força o TS a aceitar o objeto, já que a lib está reclamando
+          },
         ],
         // Aqui você configuraria as URLs de retorno (sucesso, falha)
         back_urls: {
