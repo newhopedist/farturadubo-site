@@ -67,7 +67,7 @@ export default function ShippingCalculator({ productSlug }: { productSlug: strin
             value={cep}
             onChange={(e) => setCep(formatCep(e.target.value))}
             placeholder="00000-000"
-            className="w-full pl-4 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-fartura-green-500 focus:border-transparent outline-none transition-all"
+            className="w-full pl-4 pr-4 py-3 rounded-lg border border-gray-300 bg-white text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-fartura-green-500 focus:border-transparent outline-none transition-all"
             maxLength={9}
           />
         </div>
