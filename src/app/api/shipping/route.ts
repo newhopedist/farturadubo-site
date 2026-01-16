@@ -20,7 +20,8 @@ export async function POST(request: Request) {
 
     const token = process.env.MELHOR_ENVIO_TOKEN
     const originCep = process.env.ORIGIN_CEP || '60000000'
-    const url = process.env.MELHOR_ENVIO_URL || 'https://melhorenvio.com.br/api/v2/me/shipment/calculate'
+    // URL fixa para garantir que não haja erro de configuração na Vercel
+    const url = 'https://melhorenvio.com.br/api/v2/me/shipment/calculate'
 
     if (!token) {
       console.error('ERRO: Token do Melhor Envio não configurado')
