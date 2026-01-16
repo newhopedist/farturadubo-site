@@ -2,8 +2,18 @@
 
 import { useState } from 'react'
 import { ShoppingCart, MessageCircle } from 'lucide-react'
+import dynamic from 'next/dynamic'
 import ShippingCalculator from './ShippingCalculator'
-import CheckoutBrick from './CheckoutBrick'
+
+// Importação dinâmica para evitar erros de SSR com o SDK do Mercado Pago
+const CheckoutBrick = dynamic(() => import('./CheckoutBrick'), {
+  ssr: false,
+  loading: () => (
+    <div className="flex justify-center p-8">
+      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-fartura-green-600"></div>
+    </div>
+  )
+})
 
 interface ProductBuyingSectionProps {
   product: {
