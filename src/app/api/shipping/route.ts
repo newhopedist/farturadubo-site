@@ -53,7 +53,14 @@ export async function POST(request: Request) {
     if (!response.ok) {
       const errorData = await response.text()
       console.error('Erro Melhor Envio:', errorData)
-      return NextResponse.json({ error: 'Erro ao calcular frete na transportadora' }, { status: 500 })
+      
+      // Tenta fazer o parse do JSON de erro para retornar algo legível
+      try {
+        const errorJson = JSON.parse(errorData)
+        return NextResponse.json({ error: errorJson.message || errorJson.error || 'Erro na API do Melhor Envio' }, { status: response.status })
+      } catch {
+        return NextResponse.json({ error: `Erro na transportadora: ${errorData}` }, { status: 500 })
+      }
     }
 
     const data = await response.json()
