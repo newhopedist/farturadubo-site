@@ -7,10 +7,6 @@ import { initMercadoPago, Payment } from '@mercadopago/sdk-react'
 // Se a chave não existir, o componente lida com isso graciosamente
 const PUBLIC_KEY = process.env.NEXT_PUBLIC_MERCADOPAGO_PUBLIC_KEY || ''
 
-if (PUBLIC_KEY) {
-  initMercadoPago(PUBLIC_KEY)
-}
-
 interface CheckoutBrickProps {
   amount: number
   description: string
@@ -20,6 +16,13 @@ interface CheckoutBrickProps {
 export default function CheckoutBrick({ amount, description, onPaymentComplete }: CheckoutBrickProps) {
   const [preferenceId, setPreferenceId] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    // Inicializa o Mercado Pago apenas no cliente
+    if (PUBLIC_KEY) {
+      initMercadoPago(PUBLIC_KEY)
+    }
+  }, [])
 
   useEffect(() => {
     // Cria a preferência de pagamento no backend assim que o componente monta
