@@ -25,7 +25,7 @@ export default function CheckoutBrick({ amount, description, onPaymentComplete }
     // Cria a preferência de pagamento no backend assim que o componente monta
     const createPreference = async () => {
       try {
-        const response = await fetch('/api/checkout', {
+        const response = await fetch('/api/create-preference', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -81,7 +81,7 @@ export default function CheckoutBrick({ amount, description, onPaymentComplete }
   return (
     <div className="bg-white p-4 rounded-xl shadow-lg border border-gray-100">
       <Payment
-        initialization={{ preferenceId }}
+        initialization={{ preferenceId, amount: amount }}
         customization={{
           paymentMethods: {
             ticket: 'all',
@@ -96,7 +96,7 @@ export default function CheckoutBrick({ amount, description, onPaymentComplete }
           console.log('Pagamento enviado:', formData)
           // Aqui você chamaria sua API para confirmar
           // Por enquanto vamos simular sucesso
-          return new Promise((resolve) => {
+          return new Promise<void>((resolve) => {
             setTimeout(() => {
               onPaymentComplete('mock-payment-id')
               resolve()
