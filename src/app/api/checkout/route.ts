@@ -21,6 +21,7 @@ export async function POST(request: Request) {
       body: {
         items: [
           {
+            id: `item-${Date.now()}`, // ID dinâmico para evitar colisão
             title: title,
             quantity: quantity,
             unit_price: Number(price),
