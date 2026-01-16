@@ -3,10 +3,24 @@
 import { useState } from 'react'
 import { Truck, Search, AlertCircle } from 'lucide-react'
 
-export default function ShippingCalculator({ productSlug }: { productSlug: string }) {
+interface ShippingOption {
+  name: string
+  price: number
+  days: number
+  logo?: string
+  currency?: string
+}
+
+interface ShippingCalculatorProps {
+  productSlug: string
+  onSelectShipping?: (option: ShippingOption) => void
+  selectedShipping?: ShippingOption | null
+}
+
+export default function ShippingCalculator({ productSlug, onSelectShipping, selectedShipping }: ShippingCalculatorProps) {
   const [cep, setCep] = useState('')
   const [loading, setLoading] = useState(false)
-  const [shippingOptions, setShippingOptions] = useState<any[]>([])
+  const [shippingOptions, setShippingOptions] = useState<ShippingOption[]>([])
   const [error, setError] = useState('')
 
   const handleCalculate = async (e: React.FormEvent) => {
@@ -94,9 +108,27 @@ export default function ShippingCalculator({ productSlug }: { productSlug: strin
 
       {shippingOptions.length > 0 && (
         <div className="space-y-3 animate-fadeIn">
+          <p className="text-sm font-bold text-gray-700 mb-2">Selecione o frete:</p>
           {shippingOptions.map((option, index) => (
-            <div key={index} className="flex justify-between items-center bg-white p-3 rounded-lg border border-gray-100 shadow-sm hover:border-fartura-green-200 transition-colors">
+            <div 
+              key={index} 
+              onClick={() => onSelectShipping && onSelectShipping(option)}
+              className={`flex justify-between items-center bg-white p-3 rounded-lg border cursor-pointer transition-all hover:shadow-md ${
+                selectedShipping?.name === option.name 
+                  ? 'border-fartura-green-600 ring-2 ring-fartura-green-100 bg-green-50' 
+                  : 'border-gray-100 hover:border-fartura-green-200'
+              }`}
+            >
               <div className="flex items-center">
+                {/* Radio button visual */}
+                <div className={`w-4 h-4 rounded-full border mr-3 flex items-center justify-center ${
+                  selectedShipping?.name === option.name ? 'border-fartura-green-600' : 'border-gray-300'
+                }`}>
+                  {selectedShipping?.name === option.name && (
+                    <div className="w-2 h-2 rounded-full bg-fartura-green-600" />
+                  )}
+                </div>
+
                 {option.logo && (
                   <img 
                     src={option.logo} 

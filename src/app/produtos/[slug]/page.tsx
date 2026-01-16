@@ -1,11 +1,10 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { ArrowLeft, CheckCircle2, ShoppingCart, MessageCircle, Clock, Ruler, Package } from 'lucide-react'
+import { ArrowLeft, CheckCircle2, Clock, Ruler, Package } from 'lucide-react'
 import { productContents } from '@/lib/product-content'
-import { getPaymentLink } from '@/lib/payment-links'
-import ShippingCalculator from '@/components/ShippingCalculator'
 import BeforeAfterSlider from '@/components/BeforeAfterSlider'
+import ProductBuyingSection from '@/components/ProductBuyingSection'
 
 // Função auxiliar para mapear slugs para imagens (já que as imagens não estão no arquivo de conteúdo)
 const getProductImage = (slug: string) => {
@@ -18,8 +17,7 @@ const getProductImage = (slug: string) => {
 
 export default function ProductPage({ params }: { params: { slug: string } }) {
   const content = productContents[params.slug]
-  const paymentLink = getPaymentLink(params.slug)
-
+  
   if (!content) {
     return notFound()
   }
@@ -123,42 +121,15 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                 </div>
               </div>
 
-              {/* Calculadora de Frete */}
-              {content.cta.type === 'mercadolivre' && (
-                <div className="mb-8">
-                  <ShippingCalculator productSlug={content.slug} />
-                </div>
-              )}
-
-              {/* Botão de Ação */}
-              <div className="mt-auto pt-8 border-t border-gray-100">
-                <a
-                  href={paymentLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`w-full py-4 px-8 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-center ${
-                    content.cta.type === 'mercadolivre'
-                      ? 'bg-blue-500 text-white hover:bg-blue-600' // Azul Mercado Pago
-                      : 'bg-green-600 text-white hover:bg-green-700'
-                  }`}
-                >
-                  {content.cta.type === 'mercadolivre' ? (
-                    <ShoppingCart className="w-6 h-6 mr-3" />
-                  ) : (
-                    <MessageCircle className="w-6 h-6 mr-3" />
-                  )}
-                  {content.cta.type === 'mercadolivre' ? 'COMPRAR COM MERCADO PAGO' : content.cta.text}
-                </a>
-                <p className="text-center text-xs text-gray-400 mt-4">
-                  Compra segura e entrega garantida para todo o Brasil.
-                </p>
-              </div>
+              {/* Seção de Compra Interativa (Frete + Checkout) */}
+              <ProductBuyingSection product={content} />
 
             </div>
           </div>
-
+          
           {/* Seção Inferior: Guia e Resultados */}
           <div className="bg-fartura-green-900 text-white p-8 lg:p-16">
+            {/* ... mantém o conteúdo anterior ... */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
               
               {/* Como Aplicar */}
@@ -195,7 +166,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                       <p className="text-sm text-gray-800 font-medium">{content.results.after}</p>
                     </div>
                   </div>
-
+                  
                   {/* Componente Slider Interativo */}
                   <BeforeAfterSlider 
                     beforeImage="/panta com ureia.webp"

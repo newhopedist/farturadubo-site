@@ -1,4 +1,4 @@
-import { Leaf, Sprout, Tractor, Scale, Droplets, Sun, Timer, TrendingUp } from 'lucide-react'
+import { Leaf, Sprout, Tractor, Scale, Droplets, Sun, Timer, TrendingUp, ShieldCheck } from 'lucide-react'
 
 export interface ProductDetailContent {
   slug: string
@@ -6,6 +6,7 @@ export interface ProductDetailContent {
   subtitle: string
   targetAudience: string
   description: string
+  price: number // Adicionado
   benefits: {
     icon: any
     title: string
@@ -39,6 +40,7 @@ export const productContents: Record<string, ProductDetailContent> = {
     subtitle: 'O segredo para ter frutas doces e plantas sempre verdes em casa.',
     targetAudience: 'Ideal para Jardinagem, Árvores Frutíferas e Hortas Caseiras',
     description: 'Você nota que suas plantas estão amareladas, sem força ou que as frutas caem antes de amadurecer? A Fartureia 5kg é a dose certa de energia. Com tecnologia profissional adaptada para sua casa, ela fornece Nitrogênio (para o verde) e Enxofre (para a saúde), garantindo uma explosão de vida no seu jardim.',
+    price: 29.90,
     benefits: [
       {
         icon: Sprout,
@@ -72,7 +74,7 @@ export const productContents: Record<string, ProductDetailContent> = {
       days: 15
     },
     cta: {
-      text: 'COMPRAR AGORA - R$ 29,90',
+      text: 'COMPRAR AGORA',
       link: 'https://lista.mercadolivre.com.br/_CustId_123456789', // TODO: Link real
       type: 'mercadolivre'
     },
@@ -88,6 +90,7 @@ export const productContents: Record<string, ProductDetailContent> = {
     subtitle: 'Produtividade profissional para pequenas propriedades e hortifruti.',
     targetAudience: 'Pequenos Produtores, Sítios, Chácaras e Horticultores',
     description: 'Para quem vive da terra, cada saco de adubo é um investimento. A embalagem de 25kg foi pensada para o produtor que precisa de resultado profissional sem desperdício. Ideal para culturas de ciclo rápido (milho verde, feijão, hortaliças) e manutenção de pastagens em piquetes.',
+    price: 110.00,
     benefits: [
       {
         icon: TrendingUp,
@@ -121,7 +124,7 @@ export const productContents: Record<string, ProductDetailContent> = {
       days: 20
     },
     cta: {
-      text: 'COMPRAR AGORA - R$ 110,00',
+      text: 'COMPRAR AGORA',
       link: 'https://lista.mercadolivre.com.br/_CustId_123456789',
       type: 'mercadolivre'
     },
@@ -137,6 +140,7 @@ export const productContents: Record<string, ProductDetailContent> = {
     subtitle: 'Alta performance para agricultura de precisão.',
     targetAudience: 'Médios Produtores e Lavouras Mecanizadas',
     description: 'Logística eficiente para quem precisa de velocidade no plantio e na cobertura. O Big Bag de 500kg facilita o abastecimento de implementos e reduz o tempo de parada da máquina. Tecnologia N+S garantida para altas produtividades em soja, milho e algodão.',
+    price: 1575.00,
     benefits: [
       {
         icon: Tractor,
@@ -169,7 +173,7 @@ export const productContents: Record<string, ProductDetailContent> = {
       days: 0
     },
     cta: {
-      text: 'COTAR CARGA - R$ 1.575,00/un',
+      text: 'COTAR CARGA',
       link: 'https://wa.me/5585991289449?text=Olá,%20tenho%20interesse%20no%20BigBag%20de%20500kg',
       type: 'whatsapp'
     },
@@ -185,6 +189,7 @@ export const productContents: Record<string, ProductDetailContent> = {
     subtitle: 'Escala industrial para o agronegócio de ponta.',
     targetAudience: 'Grandes Produtores e Commodities',
     description: 'A solução definitiva para grandes áreas. Maximize a eficiência logística da sua fazenda com Big Bags de 1000kg. Menos movimentação, mais adubo no solo. Produto com tratamento anti-caking de alta qualidade, garantindo fluidez total nas máquinas.',
+    price: 3150.00,
     benefits: [
       {
         icon: Tractor,
@@ -218,7 +223,7 @@ export const productContents: Record<string, ProductDetailContent> = {
       days: 0
     },
     cta: {
-      text: 'COTAR CARGA FECHADA - R$ 3.150,00/un',
+      text: 'COTAR CARGA FECHADA',
       link: 'https://wa.me/5585991289449?text=Olá,%20tenho%20interesse%20em%20Carga%20Fechada%20de%20BigBags%201Ton',
       type: 'whatsapp'
     },
@@ -229,5 +234,3 @@ export const productContents: Record<string, ProductDetailContent> = {
     }
   }
 }
-
-import { ShieldCheck } from 'lucide-react'
