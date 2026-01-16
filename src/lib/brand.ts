@@ -2,7 +2,7 @@ export const brand = {
   name: 'FARTURADUBO',
   slogan: '',
   logoSrc: '/logo.svg',
-  heroSrc: '/foto-aerea-de-um-belo-campo-verde-agricola-perto-de-montanhas.webp',
+  heroSrc: '/hero-bg-new.png',
   heroLogoSrc: '/logo.webp?v=2',
   heroPackSrc: '/hero-packs.webp',
   alt: 'Logomarca FARTURADUBO',
