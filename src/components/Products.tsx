@@ -108,7 +108,7 @@ export default function Products() {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {displayProducts.map((item) => (
-              <div key={item.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow group">
+              <div key={item.id} className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl hover:border-fartura-green-300 transition-all duration-300 group">
                 <div className="h-56 bg-white flex items-center justify-center p-4 relative">
                   <div className="w-full h-full relative">
                     <Image
