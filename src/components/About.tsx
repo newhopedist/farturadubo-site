@@ -44,16 +44,21 @@ export default function About() {
           </div>
           
           <div className="relative">
-            <div className="bg-white rounded-2xl p-8 h-[28rem] flex items-center justify-center">
-              <div className="w-[28rem] h-64 md:w-[36rem] md:h-80 relative">
+            <div className="bg-white rounded-2xl p-2 shadow-xl border border-gray-100 transform hover:scale-[1.02] transition-transform duration-500">
+              <div className="relative h-[400px] w-full rounded-xl overflow-hidden">
                 <Image
-                  src={brand.heroPackSrc}
-                  alt="Embalagens FARTURADUBO"
+                  src="/fartureia-no-campo.webp"
+                  alt="Aplicação de Fartureia no campo"
                   fill
-                  sizes="(min-width: 768px) 576px, 448px"
-                  className="object-contain"
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="object-cover"
                   priority
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"></div>
+                <div className="absolute bottom-6 left-6 text-white">
+                  <p className="font-bold text-lg">Tecnologia em Campo</p>
+                  <p className="text-sm opacity-90">Resultados reais para sua lavoura</p>
+                </div>
               </div>
             </div>
             <div className="absolute -bottom-6 -right-6 bg-white rounded-xl shadow-lg p-6 border border-fartura-green-200">
