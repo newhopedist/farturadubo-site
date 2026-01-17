@@ -42,12 +42,13 @@ export default function CheckoutBrick({ amount, description, onPaymentComplete }
           const { id } = await response.json()
           setPreferenceId(id)
         } else {
-          const errorData = await response.json()
-          setErrorMessage(errorData.error || 'Erro desconhecido ao criar preferência')
+          const errorData = await response.json().catch(() => ({ error: 'Erro desconhecido (resposta não-JSON)' }))
+          console.error('Erro API:', errorData)
+          setErrorMessage(errorData.error || JSON.stringify(errorData))
         }
       } catch (error) {
         console.error('Erro ao criar preferência:', error)
-        setErrorMessage('Erro de conexão com o servidor')
+        setErrorMessage(error instanceof Error ? error.message : 'Erro de conexão')
       } finally {
         setLoading(false)
       }
