@@ -1,8 +1,6 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
-import { ChevronsLeftRight } from 'lucide-react'
 
 interface BeforeAfterSliderProps {
   beforeImage: string
@@ -11,68 +9,12 @@ interface BeforeAfterSliderProps {
 }
 
 export default function BeforeAfterSlider({ beforeImage, afterImage, alt }: BeforeAfterSliderProps) {
-  const [sliderPosition, setSliderPosition] = useState(50)
-  const [isDragging, setIsDragging] = useState(false)
-  const containerRef = useRef<HTMLDivElement>(null)
-
-  const handleMove = (event: React.MouseEvent | React.TouchEvent) => {
-    if (!containerRef.current) return
-
-    const containerRect = containerRef.current.getBoundingClientRect()
-    const x = 'touches' in event ? event.touches[0].clientX : (event as React.MouseEvent).clientX
-    const position = ((x - containerRect.left) / containerRect.width) * 100
-
-    setSliderPosition(Math.min(Math.max(position, 0), 100))
-  }
-
-  const handleMouseDown = () => setIsDragging(true)
-  const handleMouseUp = () => setIsDragging(false)
-
-  useEffect(() => {
-    const handleGlobalMouseUp = () => setIsDragging(false)
-    const handleGlobalMouseMove = (e: MouseEvent) => {
-      if (isDragging) {
-        // Adaptando o evento global para a lógica local
-        if (!containerRef.current) return
-        const containerRect = containerRef.current.getBoundingClientRect()
-        const position = ((e.clientX - containerRect.left) / containerRect.width) * 100
-        setSliderPosition(Math.min(Math.max(position, 0), 100))
-      }
-    }
-    
-    // Touch events
-    const handleGlobalTouchMove = (e: TouchEvent) => {
-      if (isDragging) {
-        if (!containerRef.current) return
-        const containerRect = containerRef.current.getBoundingClientRect()
-        const position = ((e.touches[0].clientX - containerRect.left) / containerRect.width) * 100
-        setSliderPosition(Math.min(Math.max(position, 0), 100))
-      }
-    }
-
-    if (isDragging) {
-      window.addEventListener('mouseup', handleGlobalMouseUp)
-      window.addEventListener('mousemove', handleGlobalMouseMove)
-      window.addEventListener('touchend', handleGlobalMouseUp)
-      window.addEventListener('touchmove', handleGlobalTouchMove)
-    }
-
-    return () => {
-      window.removeEventListener('mouseup', handleGlobalMouseUp)
-      window.removeEventListener('mousemove', handleGlobalMouseMove)
-      window.removeEventListener('touchend', handleGlobalMouseUp)
-      window.removeEventListener('touchmove', handleGlobalTouchMove)
-    }
-  }, [isDragging])
+  // Posição fixa em 50%
+  const sliderPosition = 50
 
   return (
     <div 
-      ref={containerRef}
-      className="relative h-64 w-full rounded-xl overflow-hidden cursor-ew-resize select-none touch-none group"
-      onMouseDown={handleMouseDown}
-      onTouchStart={handleMouseDown}
-      // Adicionamos onMouseMove local também para hover effect se não estiver arrastando
-      onMouseMove={(e) => !isDragging && handleMove(e)}
+      className="relative h-64 w-full rounded-xl overflow-hidden select-none group"
     >
       {/* Imagem DEPOIS (Fundo) */}
       <div className="absolute inset-0 w-full h-full">
@@ -110,20 +52,11 @@ export default function BeforeAfterSlider({ beforeImage, afterImage, alt }: Befo
         </div>
       </div>
 
-      {/* Linha Divisória e Manipulador */}
+      {/* Linha Divisória (Estática) */}
       <div 
-        className="absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize shadow-[0_0_10px_rgba(0,0,0,0.5)] z-20"
+        className="absolute top-0 bottom-0 w-1 bg-white shadow-[0_0_10px_rgba(0,0,0,0.5)] z-20"
         style={{ left: `${sliderPosition}%` }}
-      >
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center text-fartura-green-600">
-          <ChevronsLeftRight className="w-5 h-5" />
-        </div>
-      </div>
-      
-      {/* Instrução Flutuante (Desaparece ao interagir) */}
-      <div className={`absolute top-4 left-1/2 -translate-x-1/2 bg-white/90 text-gray-800 text-[10px] font-bold px-3 py-1 rounded-full shadow-lg z-30 transition-opacity duration-300 pointer-events-none ${isDragging ? 'opacity-0' : 'opacity-100'}`}>
-        ARRASTE PARA COMPARAR
-      </div>
+      />
     </div>
   )
 }
