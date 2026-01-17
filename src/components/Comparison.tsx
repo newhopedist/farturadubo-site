@@ -83,7 +83,7 @@ export default function Comparison() {
                     Estabilidade e Segurança
                   </h4>
                   <p className="text-gray-600 leading-relaxed">
-                    Tecnologia desenvolvida para reduzir a volatilização. Isso permite uma janela de aplicação mais flexível e garante que o investimento fique no solo, disponível para a cultura.
+                    Aplicação mais flexível e garante que o investimento fique no solo, disponível para a cultura.
                   </p>
                 </div>
 

@@ -5,7 +5,7 @@ export default function Benefits() {
     {
       title: "1. Alta Eficiência Nutritiva",
       description:
-        "Nossos fertilizantes são desenvolvidos com formulações balanceadas que combinam ureia e sulfato de amônia, proporcionando máxima absorção de nitrogênio e enxofre pelas plantas. O resultado é uma nutrição uniforme, com liberação gradual e aproveitamento superior dos nutrientes essenciais ao crescimento saudável.",
+        "Nossos fertilizantes são desenvolvidos com formulações balanceadas que combinam ureia e sulfato de Amônio, proporcionando máxima absorção de nitrogênio e enxofre pelas plantas. O resultado é uma nutrição uniforme, com liberação gradual e aproveitamento superior dos nutrientes essenciais ao crescimento saudável.",
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6c-3 5-6 6-6 9a6 6 0 0012 0c0-3-3-4-6-9z" />

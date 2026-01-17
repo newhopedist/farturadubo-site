@@ -12,7 +12,7 @@ export default function Hero() {
       aria-label="Imagem de destaque FARTURADUBO"
       role="img"
     >
-      <div className="absolute inset-0 bg-gradient-to-l from-black/40 via-black/10 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/50 to-transparent pointer-events-none" />
       {/* Camada de logo sobre a imagem de fundo */}
       {brand.heroLogoSrc && (
         <div className="absolute top-6 right-6 md:top-8 md:right-8 opacity-95">
@@ -25,12 +25,12 @@ export default function Hero() {
       
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 items-center">
-          <div className="text-center lg:text-left">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6 drop-shadow-lg">
+          <div className="text-center lg:text-left relative z-10">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-fartura-green-900 mb-4 md:mb-6">
               Fertilizantes de
-              <span className="text-yellow-400 block drop-shadow-md">Alta Performance</span>
+              <span className="text-fartura-green-600 block">Alta Performance</span>
             </h1>
-            <p className="text-base md:text-lg text-white mb-6 md:mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            <p className="text-base md:text-lg text-gray-800 mb-6 md:mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-medium">
               Maximize sua produtividade com fertilizantes <strong>FARTURADUBO</strong>. Tecnologia avançada
               para resultados excepcionais.
             </p>

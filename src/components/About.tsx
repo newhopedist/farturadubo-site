@@ -12,33 +12,33 @@ export default function About() {
             </h2>
             <div className="w-20 h-1 bg-fartura-green-600 mb-8"></div>
             <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-              Especializada no desenvolvimento e comercialização de fertilizantes de alta qualidade, 
+              Especializada na comercialização de fertilizantes de alta qualidade, 
               comprometida com a sustentabilidade e a produtividade agrícola, oferecendo soluções 
               que maximizam o rendimento das lavouras com tecnologia avançada.
             </p>
             <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-              Com foco em inovação e qualidade, desenvolvemos ureia de alta pureza com 45% de nitrogênio, 
+              Com foco em inovação e qualidade, desenvolvemos produtos de alta pureza 
               garantindo máxima eficiência nutricional e resultados superiores em produtividade para 
               agricultores que buscam excelência no campo.
             </p>
             <div className="grid grid-cols-2 gap-6 mb-8">
               <div className="bg-fartura-green-50 p-4 rounded-lg">
-                <div className="text-2xl font-bold text-fartura-green-600 mb-1">45%</div>
-                <div className="text-sm text-gray-600">Nitrogênio de Alta Eficiência</div>
+                <div className="text-lg font-bold text-fartura-green-600 mb-1">Logística</div>
+                <div className="text-sm text-gray-600">Entregas em todo o Brasil</div>
               </div>
               <div className="bg-fartura-green-50 p-4 rounded-lg">
-                <div className="text-2xl font-bold text-fartura-green-600 mb-1">100%</div>
-                <div className="text-sm text-gray-600">Solubilidade Imediata</div>
+                <div className="text-lg font-bold text-fartura-green-600 mb-1">Qualidade</div>
+                <div className="text-sm text-gray-600">Produtos Certificados</div>
               </div>
             </div>
             <div className="grid grid-cols-2 gap-6 mb-8">
               <div className="bg-fartura-green-50 p-4 rounded-lg">
-                <div className="text-2xl font-bold text-fartura-green-600 mb-1">5-1000</div>
-                <div className="text-sm text-gray-600">kg - Flexibilidade Total</div>
+                <div className="text-lg font-bold text-fartura-green-600 mb-1">Suporte</div>
+                <div className="text-sm text-gray-600">Atendimento Especializado</div>
               </div>
               <div className="bg-fartura-green-50 p-4 rounded-lg">
-                <div className="text-2xl font-bold text-fartura-green-600 mb-1">Zero</div>
-                <div className="text-sm text-gray-600">Perdas por Volatilização</div>
+                <div className="text-lg font-bold text-fartura-green-600 mb-1">Parceria</div>
+                <div className="text-sm text-gray-600">Compromisso com o Produtor</div>
               </div>
             </div>
           </div>
