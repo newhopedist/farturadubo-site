@@ -122,7 +122,14 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
               </div>
 
               {/* Seção de Compra Interativa (Frete + Checkout) */}
-              <ProductBuyingSection product={content} />
+              <ProductBuyingSection 
+                product={{
+                  slug: content.slug,
+                  title: content.title,
+                  price: content.price,
+                  cta: content.cta
+                }} 
+              />
 
             </div>
           </div>
