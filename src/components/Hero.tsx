@@ -30,7 +30,7 @@ export default function Hero() {
               Fertilizantes de
               <span className="text-fartura-green-600 block">Alta Performance</span>
             </h1>
-            <p className="text-base md:text-lg text-gray-800 mb-6 md:mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-medium">
+            <p className="text-base md:text-lg text-fartura-green-800 mb-6 md:mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-medium">
               Maximize sua produtividade com fertilizantes <strong>FARTURADUBO</strong>. Tecnologia avançada
               para resultados excepcionais.
             </p>
