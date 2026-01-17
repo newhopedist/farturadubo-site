@@ -79,20 +79,24 @@ export default function Comparison() {
                 
                 <div>
                   <h4 className="font-semibold text-fartura-green-900 text-lg mb-2 flex items-center">
-                    <ShieldCheck className="w-5 h-5 mr-2 text-fartura-green-600" />
+                    <div className="bg-fartura-green-100 p-2 rounded-lg mr-3">
+                      <ShieldCheck className="w-5 h-5 text-fartura-green-600" />
+                    </div>
                     Estabilidade e Segurança
                   </h4>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-gray-600 leading-relaxed pl-12">
                     Garante que o produto fique por mais tempo no solo.
                   </p>
                 </div>
 
                 <div>
                   <h4 className="font-semibold text-fartura-green-900 text-lg mb-2 flex items-center">
-                    <CheckCircle2 className="w-5 h-5 mr-2 text-fartura-green-600" />
+                    <div className="bg-fartura-green-100 p-2 rounded-lg mr-3">
+                      <CheckCircle2 className="w-5 h-5 text-fartura-green-600" />
+                    </div>
                     Fisiologia da Planta
                   </h4>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-gray-600 leading-relaxed pl-12">
                     O Enxofre é fundamental para a síntese de aminoácidos e proteínas. Plantas bem nutridas com N+S apresentam maior vigor, folhas mais verdes e maior potencial produtivo.
                   </p>
                 </div>

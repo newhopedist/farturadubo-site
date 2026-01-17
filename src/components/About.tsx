@@ -22,36 +22,36 @@ export default function About() {
               agricultores que buscam excelência no campo.
             </p>
             <div className="grid grid-cols-2 gap-6 mb-8">
-              <div className="bg-fartura-green-50 p-4 rounded-lg">
+              <div className="bg-white p-4 rounded-xl shadow-lg border border-fartura-green-200">
                 <div className="text-lg font-bold text-fartura-green-600 mb-1">Logística</div>
                 <div className="text-sm text-gray-600">Entregas em todo o Brasil</div>
               </div>
-              <div className="bg-fartura-green-50 p-4 rounded-lg">
+              <div className="bg-white p-4 rounded-xl shadow-lg border border-fartura-green-200">
                 <div className="text-lg font-bold text-fartura-green-600 mb-1">Qualidade</div>
                 <div className="text-sm text-gray-600">Produtos Certificados</div>
               </div>
             </div>
             <div className="grid grid-cols-2 gap-6 mb-8">
-              <div className="bg-fartura-green-50 p-4 rounded-lg">
+              <div className="bg-white p-4 rounded-xl shadow-lg border border-fartura-green-200">
                 <div className="text-lg font-bold text-fartura-green-600 mb-1">Suporte</div>
                 <div className="text-sm text-gray-600">Atendimento Especializado</div>
               </div>
-              <div className="bg-fartura-green-50 p-4 rounded-lg">
+              <div className="bg-white p-4 rounded-xl shadow-lg border border-fartura-green-200">
                 <div className="text-lg font-bold text-fartura-green-600 mb-1">Parceria</div>
                 <div className="text-sm text-gray-600">Compromisso com o Produtor</div>
               </div>
             </div>
           </div>
           
-          <div className="relative">
-            <div className="bg-white rounded-2xl p-2 shadow-xl border border-gray-100 transform hover:scale-[1.02] transition-transform duration-500">
-              <div className="relative h-[400px] w-full rounded-xl overflow-hidden">
+          <div className="relative h-full flex flex-col justify-between">
+            <div className="bg-white rounded-2xl p-2 shadow-xl border border-gray-100 transform hover:scale-[1.02] transition-transform duration-500 h-full">
+              <div className="relative h-full w-full rounded-xl overflow-hidden min-h-[500px]">
                 <Image
                   src="/fartureia-no-campo.webp"
                   alt="Aplicação de Fartureia no campo"
                   fill
                   sizes="(min-width: 768px) 50vw, 100vw"
-                  className="object-cover"
+                  className="object-cover object-bottom"
                   priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"></div>
