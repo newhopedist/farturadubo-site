@@ -8,11 +8,11 @@ import ProductBuyingSection from '@/components/ProductBuyingSection'
 
 // Função auxiliar para mapear slugs para imagens (já que as imagens não estão no arquivo de conteúdo)
 const getProductImage = (slug: string) => {
-  if (slug.includes('5kg')) return '/5kg.webp'
-  if (slug.includes('25kg')) return '/25kg.webp'
+  if (slug.includes('5kg')) return '/fartureia-5kg.png'
+  if (slug.includes('25kg')) return '/fartureia-25kg.png'
   if (slug.includes('500kg')) return '/bigbag-500kg.webp'
   if (slug.includes('1000kg')) return '/bigbag-1000kg.webp'
-  return '/25kg.webp'
+  return '/fartureia-25kg.png'
 }
 
 export default function ProductPage({ params }: { params: { slug: string } }) {
