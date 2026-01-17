@@ -83,7 +83,7 @@ export default function Comparison() {
                     Estabilidade e Segurança
                   </h4>
                   <p className="text-gray-600 leading-relaxed">
-                    Aplicação mais flexível e garante que o investimento fique no solo, disponível para a cultura.
+                    Garante que o produto fique por mais tempo no solo.
                   </p>
                 </div>
 
