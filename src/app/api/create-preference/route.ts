@@ -11,12 +11,13 @@ export async function POST(request: Request) {
       nodeEnv: process.env.NODE_ENV
     })
 
-    const accessToken = process.env.MERCADOPAGO_ACCESS_TOKEN
+    // Tenta pegar o Access Token de várias variáveis possíveis
+    const accessToken = process.env.MERCADOPAGO_ACCESS_TOKEN || process.env.MERCADO_PAGO
 
     if (!accessToken) {
       return NextResponse.json({ 
         error: 'Access Token não configurado',
-        debug: 'Verifique os logs da Vercel para ver as variáveis carregadas.' 
+        debug: 'Verifique se a variável MERCADOPAGO_ACCESS_TOKEN ou MERCADO_PAGO está definida na Vercel.' 
       }, { status: 500 })
     }
 
