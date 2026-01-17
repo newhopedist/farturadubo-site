@@ -3,10 +3,21 @@ import { NextResponse } from 'next/server'
 export async function POST(request: Request) {
   try {
     const { title, quantity, price } = await request.json()
+    
+    // Debug: Listar variáveis de ambiente disponíveis (apenas nomes) para diagnóstico
+    console.log('Environment Check:', {
+      keys: Object.keys(process.env),
+      hasAccessToken: !!process.env.MERCADOPAGO_ACCESS_TOKEN,
+      nodeEnv: process.env.NODE_ENV
+    })
+
     const accessToken = process.env.MERCADOPAGO_ACCESS_TOKEN
 
     if (!accessToken) {
-      return NextResponse.json({ error: 'Access Token não configurado' }, { status: 500 })
+      return NextResponse.json({ 
+        error: 'Access Token não configurado',
+        debug: 'Verifique os logs da Vercel para ver as variáveis carregadas.' 
+      }, { status: 500 })
     }
 
     // Chamada direta à API do Mercado Pago (sem SDK para evitar erros de build)
