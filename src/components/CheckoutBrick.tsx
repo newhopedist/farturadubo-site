@@ -5,7 +5,8 @@ import { initMercadoPago, Payment } from '@mercadopago/sdk-react'
 
 // Inicializa o Mercado Pago com a chave pública
 // Se a chave não existir, o componente lida com isso graciosamente
-const PUBLIC_KEY = process.env.NEXT_PUBLIC_MERCADOPAGO_PUBLIC_KEY || ''
+// FALLBACK: Usando a chave de teste fornecida diretamente caso a variável de ambiente falhe
+const PUBLIC_KEY = process.env.NEXT_PUBLIC_MERCADOPAGO_PUBLIC_KEY || 'TEST-9fe69e23-8372-40fa-b7dd-60caacd0451f'
 
 interface CheckoutBrickProps {
   amount: number
