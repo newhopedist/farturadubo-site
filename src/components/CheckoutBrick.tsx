@@ -16,6 +16,7 @@ interface CheckoutBrickProps {
 export default function CheckoutBrick({ amount, description, onPaymentComplete }: CheckoutBrickProps) {
   const [preferenceId, setPreferenceId] = useState<string | undefined>(undefined)
   const [loading, setLoading] = useState(true)
+  const [errorMessage, setErrorMessage] = useState<string | null>(null)
 
   useEffect(() => {
     // Inicializa o Mercado Pago apenas no cliente
@@ -82,8 +83,15 @@ export default function CheckoutBrick({ amount, description, onPaymentComplete }
   // MAS apenas se tivermos a chave pública. Se não tiver chave, o erro de configuração já aparece acima.
   if (!preferenceId && PUBLIC_KEY) {
     return (
-      <div className="text-center text-red-500 p-4">
-        Erro ao carregar checkout. Tente atualizar a página.
+      <div className="text-center text-red-500 p-4 flex flex-col items-center border border-red-200 rounded-xl bg-red-50">
+        <p className="font-bold mb-2">Erro ao carregar checkout</p>
+        <p className="text-sm mb-2">Tente atualizar a página.</p>
+        {errorMessage && (
+          <div className="text-xs bg-white p-3 mt-2 rounded border border-red-200 text-left w-full max-w-xs overflow-auto">
+            <p className="font-bold text-red-700 mb-1">Detalhes do erro:</p>
+            <code className="block whitespace-pre-wrap">{errorMessage}</code>
+          </div>
+        )}
       </div>
     )
   }
