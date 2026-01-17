@@ -14,7 +14,7 @@ interface CheckoutBrickProps {
 }
 
 export default function CheckoutBrick({ amount, description, onPaymentComplete }: CheckoutBrickProps) {
-  const [preferenceId, setPreferenceId] = useState<string | null>(null)
+  const [preferenceId, setPreferenceId] = useState<string | undefined>(undefined)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
