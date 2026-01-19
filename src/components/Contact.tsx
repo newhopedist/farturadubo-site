@@ -73,13 +73,13 @@ export default function Contact() {
             Entre em Contato
           </h2>
           <div className="w-12 md:w-20 h-1 bg-fartura-green-600 mx-auto mb-4 md:mb-6"></div>
-          <p className="text-xs sm:text-sm md:text-lg text-gray-700 max-w-3xl mx-auto">
+          <p className="text-base md:text-lg text-gray-700 max-w-3xl mx-auto">
             Tem dúvidas sobre nossos produtos ou precisa de orientação técnica? 
             Nossa equipe de especialistas está pronta para ajudar você.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-12">
           {/* Ordem invertida no mobile: Formulário primeiro, depois contatos */}
           <div className="order-2 lg:order-1 hidden lg:block bg-white rounded-xl p-8 border border-fartura-green-600 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-fartura-green-500 hover:ring-2 hover:ring-fartura-green-500/20">
             <h3 className="text-2xl font-semibold text-fartura-green-800 mb-6">Informações de Contato</h3>

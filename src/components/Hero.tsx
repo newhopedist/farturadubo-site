@@ -7,7 +7,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative pt-20 md:pt-40 pb-8 md:pb-12 bg-cover bg-center min-h-[280px] md:min-h-[520px]"
+      className="relative pt-24 sm:pt-28 md:pt-40 pb-8 md:pb-12 bg-cover bg-center min-h-[220px] sm:min-h-[280px] md:min-h-[520px]"
       style={{ backgroundImage: `url(${brand.heroSrc})`, backgroundPosition: 'center 30%' }}
       aria-label="Imagem de destaque FARTURADUBO"
       role="img"
