@@ -55,7 +55,7 @@ export default function About() {
                   priority
                 />
                 
-                <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 text-white drop-shadow-md">
+                <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 text-white drop-shadow-md hidden md:block">
                   <p className="font-bold text-sm md:text-lg">Tecnologia em Campo</p>
                   <p className="text-[10px] md:text-sm opacity-90">Resultados reais para sua lavoura</p>
                 </div>
@@ -75,17 +75,17 @@ export default function About() {
               </div>
             </div>
             
-            {/* Card de Qualidade Garantida (Visível apenas no mobile, abaixo da imagem) */}
+            {/* Card de Tecnologia em Campo (Substituindo Qualidade Garantida no mobile) */}
             <div className="bg-white rounded-xl shadow-lg p-3 border border-fartura-green-200 block md:hidden mt-2">
               <div className="flex items-center space-x-3 justify-center">
                 <div className="w-10 h-10 bg-fartura-green-100 rounded-full flex items-center justify-center">
                   <svg className="w-5 h-5 text-fartura-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
                 <div>
-                  <div className="font-semibold text-sm text-fartura-green-800">Qualidade Garantida</div>
-                  <div className="text-xs text-gray-600">Testado e aprovado</div>
+                  <div className="font-semibold text-sm text-fartura-green-800">Tecnologia em Campo</div>
+                  <div className="text-xs text-gray-600">Resultados reais</div>
                 </div>
               </div>
             </div>
