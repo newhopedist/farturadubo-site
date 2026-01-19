@@ -45,7 +45,7 @@ export default function About() {
           
           <div className="relative h-full flex flex-col justify-between">
             <div className="bg-white rounded-2xl p-2 shadow-xl border border-gray-100 transform hover:scale-[1.02] transition-transform duration-500 h-full">
-              <div className="relative h-full w-full rounded-xl overflow-hidden min-h-[350px] md:min-h-[500px]">
+              <div className="relative h-full w-full rounded-xl overflow-hidden min-h-[300px] sm:min-h-[400px] md:min-h-[500px]">
                 <Image
                   src="/fartureia-no-campo.webp"
                   alt="Aplicação de Fartureia no campo"

@@ -82,7 +82,7 @@ export default function Benefits() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {benefits.map((benefit, index) => (
             <div key={index} className="bg-white rounded-xl shadow-lg p-5 md:p-6 hover:shadow-xl transition-shadow">
               <div className="w-12 h-12 md:w-16 md:h-16 bg-fartura-green-100 rounded-full flex items-center justify-center mb-4 text-fartura-green-600 mx-auto">

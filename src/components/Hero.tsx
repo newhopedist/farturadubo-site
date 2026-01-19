@@ -24,17 +24,17 @@ export default function Hero() {
 
       
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-full flex items-center">
-        <div className="grid grid-cols-1 md:grid-cols-2 items-center w-full">
-          <div className="text-center md:text-left relative z-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 items-center w-full gap-8">
+          <div className="text-center sm:text-left relative z-10">
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-fartura-green-900 mb-4 md:mb-6 leading-tight">
               Fertilizantes de
               <span className="text-fartura-green-600 block">Alta Performance</span>
             </h1>
-            <p className="text-sm sm:text-base md:text-lg text-fartura-green-800 mb-6 md:mb-8 leading-relaxed max-w-2xl mx-auto md:mx-0 font-medium">
+            <p className="text-sm sm:text-base md:text-lg text-fartura-green-800 mb-6 md:mb-8 leading-relaxed max-w-2xl mx-auto sm:mx-0 font-medium">
               Maximize sua produtividade com fertilizantes <strong>FARTURADUBO</strong>. Tecnologia avançada
               para resultados excepcionais.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center sm:justify-start">
               <Link href="#products" aria-label="Ir para seção de produtos" className="bg-fartura-green-600 hover:bg-fartura-green-700 text-white px-6 py-3 rounded-lg font-semibold text-sm sm:text-base md:text-lg transition-colors shadow-lg text-center" onClick={() => {
                 if (typeof window !== 'undefined' && (window as any).gtag) {
                   (window as any).gtag('event', 'cta_click', { label: 'hero_products' })

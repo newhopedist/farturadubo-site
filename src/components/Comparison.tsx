@@ -15,10 +15,10 @@ export default function Comparison() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-20 items-start">
           
           {/* Lado Esquerdo: O Contexto Tradicional */}
-          <div className="relative">
+          <div className="relative group">
             <div className="absolute -left-4 top-0 w-1 h-full bg-gray-200 rounded-full"></div>
             <div className="pl-8">
               <h3 className="text-2xl font-bold text-gray-800 mb-4 flex items-center">
