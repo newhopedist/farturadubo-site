@@ -36,109 +36,39 @@ interface ShippingOption {
 }
 
 export default function ProductBuyingSection({ product }: ProductBuyingSectionProps) {
-  const [selectedShipping, setSelectedShipping] = useState<ShippingOption | null>(null)
-  const [showCheckout, setShowCheckout] = useState(false)
-
-  const productPrice = product.price
-  const totalPrice = productPrice + (selectedShipping?.price || 0)
-
-  // Se for Big Bag (WhatsApp), mantém o comportamento original simples
-  if (product.cta.type === 'whatsapp') {
-    return (
-      <div className="mt-auto pt-8 border-t border-gray-100">
-        <a
-          href={product.cta.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-full py-4 px-8 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-center bg-green-600 text-white hover:bg-green-700"
-        >
-          <MessageCircle className="w-6 h-6 mr-3" />
-          {product.cta.text}
-        </a>
-        <p className="text-center text-xs text-gray-400 mt-4">
-          Fale direto com um consultor agrônomo.
+  return (
+    <div className="mt-8 border-t border-gray-100 pt-6">
+      <div className="bg-fartura-green-50 rounded-xl p-6 border border-fartura-green-100 text-center">
+        <h3 className="text-lg font-bold text-fartura-green-900 mb-2">Produto em Alta Demanda</h3>
+        <p className="text-sm text-gray-600 mb-6">
+          Devido à grande procura, estamos aceitando pedidos apenas sob consulta. 
+          Garanta sua remessa entrando em contato agora.
         </p>
-      </div>
-    )
-  }
 
-  // Se já clicou em comprar e tem frete, mostra o Checkout Transparente
-  if (showCheckout && selectedShipping) {
-    return (
-      <div className="mt-8 animate-fadeIn">
-        <div className="bg-gray-50 p-4 rounded-lg mb-4 flex justify-between items-center">
-          <div>
-            <p className="text-sm text-gray-500">Total a pagar</p>
-            <p className="text-xl font-bold text-gray-900">R$ {totalPrice.toFixed(2).replace('.', ',')}</p>
-          </div>
-          <button 
-            onClick={() => setShowCheckout(false)}
-            className="text-sm text-fartura-green-600 underline"
+        <div className="space-y-3">
+          {/* Botão Avise-me (Simulado com WhatsApp por enquanto) */}
+          <a
+            href="https://wa.me/5585991289449?text=Olá, gostaria de ser avisado quando o produto estiver disponível para compra imediata."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full py-3 px-6 rounded-lg font-semibold text-fartura-green-700 bg-white border-2 border-fartura-green-600 hover:bg-fartura-green-50 transition-colors flex items-center justify-center shadow-sm"
           >
-            Alterar frete
-          </button>
+            <span className="mr-2">🔔</span>
+            Avise-me quando chegar
+          </a>
+
+          {/* Botão Falar com Especialista (Rola para o formulário) */}
+          <a
+            href="#contact"
+            className="w-full py-4 px-6 rounded-lg font-bold text-white bg-gradient-to-r from-fartura-green-600 to-fartura-green-700 hover:from-fartura-green-700 hover:to-fartura-green-800 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all flex items-center justify-center"
+          >
+            <MessageCircle className="w-5 h-5 mr-2" />
+            Falar com um Especialista
+          </a>
         </div>
         
-        <CheckoutBrick 
-          amount={totalPrice}
-          description={`${product.title} + Frete ${selectedShipping.name}`}
-          onPaymentComplete={(id) => alert(`Pagamento Processado! ID: ${id}`)}
-        />
-      </div>
-    )
-  }
-
-  return (
-    <div className="mt-8">
-      {/* Calculadora de Frete */}
-      <div className="mb-8">
-        <ShippingCalculator 
-          productSlug={product.slug} 
-          onSelectShipping={(option) => setSelectedShipping(option)}
-          selectedShipping={selectedShipping}
-        />
-      </div>
-
-      {/* Resumo do Pedido (se tiver frete selecionado) */}
-      {selectedShipping && (
-        <div className="bg-fartura-green-50 p-4 rounded-xl mb-6 border border-fartura-green-100">
-          <div className="flex justify-between mb-2 text-sm text-gray-600">
-            <span>Produto</span>
-            <span>R$ {productPrice.toFixed(2).replace('.', ',')}</span>
-          </div>
-          <div className="flex justify-between mb-2 text-sm text-gray-600">
-            <span>Frete ({selectedShipping.name})</span>
-            <span>R$ {selectedShipping.price.toFixed(2).replace('.', ',')}</span>
-          </div>
-          <div className="border-t border-fartura-green-200 my-2 pt-2 flex justify-between font-bold text-lg text-fartura-green-900">
-            <span>Total</span>
-            <span>R$ {totalPrice.toFixed(2).replace('.', ',')}</span>
-          </div>
-        </div>
-      )}
-
-      {/* Botão de Ação */}
-      <div className="pt-4 border-t border-gray-100">
-        <button
-          onClick={() => {
-            if (!selectedShipping) {
-              alert('Por favor, calcule e selecione um frete antes de continuar.')
-              return
-            }
-            setShowCheckout(true)
-          }}
-          className={`w-full py-4 px-8 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-center ${
-            selectedShipping 
-              ? 'bg-blue-600 text-white hover:bg-blue-700' 
-              : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-          }`}
-          disabled={!selectedShipping}
-        >
-          <ShoppingCart className="w-6 h-6 mr-3" />
-          {selectedShipping ? 'PAGAR AGORA' : 'Selecione o Frete para Comprar'}
-        </button>
-        <p className="text-center text-xs text-gray-400 mt-4">
-          Ambiente seguro Mercado Pago. Seus dados estão protegidos.
+        <p className="text-xs text-gray-400 mt-4">
+          Atendimento personalizado para sua lavoura.
         </p>
       </div>
     </div>
