@@ -3,7 +3,7 @@ import { brand } from '@/lib/brand'
 
 export default function About() {
   return (
-    <section id="about" className="py-8 md:py-20 bg-white scroll-mt-24 -mt-6 sm:mt-0 relative z-20 rounded-t-3xl sm:rounded-none">
+    <section id="about" className="py-8 md:py-20 bg-white scroll-mt-24 -mt-6 sm:mt-0 relative z-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-12 items-center">
           <div>

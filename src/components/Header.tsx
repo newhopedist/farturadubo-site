@@ -23,14 +23,17 @@ export default function Header() {
     const controlNavbar = () => {
       const currentScrollY = window.scrollY
       
-      // Se rolou para baixo e passou de 10px, esconde
-      if (currentScrollY > lastScrollY && currentScrollY > 10) {
-        setIsVisible(false)
-      } else {
-        // Se rolou para cima, mostra
-        setIsVisible(true)
-      }
-      setLastScrollY(currentScrollY)
+      // Lógica invertida:
+        // Rolar para BAIXO (> lastScrollY) -> ESCONDE (isVisible = false)
+        // Rolar para CIMA (< lastScrollY) -> MOSTRA (isVisible = true)
+        
+        if (currentScrollY > lastScrollY && currentScrollY > 10) {
+          setIsVisible(false)
+        } else if (currentScrollY < lastScrollY) {
+          setIsVisible(true)
+        }
+        
+        setLastScrollY(currentScrollY)
     }
 
     if (typeof window !== 'undefined') {
