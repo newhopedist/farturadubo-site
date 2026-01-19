@@ -122,23 +122,17 @@ export default function Products() {
                       blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYwIiBoZWlnaHQ9IjExMiIgdmlld0JveD0iMCAwIDE2MCAxMTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxNjAiIGhlaWdodD0iMTEyIiBmaWxsPSIjZjBmOWZmIi8+Cjx0ZXh0IHg9IjgwIiB5PSI2MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEyIiBmaWxsPSIjNjQ3NDhiIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5GQVJUVVJBRFVCTzwvdGV4dD4KPC9zdmc+"
                     />
                   </div>
-                  <div className="absolute top-2 right-2">
-                    <span className={`px-3 py-1 rounded-full text-xs font-bold ${getWeightBadgeColor(item.peso)} shadow-sm`}>
-                      {item.peso}
-                    </span>
                   </div>
-                </div>
                 
                 <div className="p-5 border-t border-gray-100">
-                  <h3 className="text-lg font-bold text-fartura-green-800 mb-1">{item.name}</h3>
+                  <h3 className="text-lg font-bold text-fartura-green-800 mb-1">{item.name} {item.peso.toUpperCase()}</h3>
                   <p className="text-gray-500 text-sm mb-4">Ureia Agrícola Premium</p>
                   
                   <div className="flex flex-col gap-3">
                     <div className="flex justify-between items-end">
                       <div>
-                        <p className="text-xs text-gray-500">A partir de</p>
-                        <p className="text-xl font-bold text-fartura-green-600">
-                          {item.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+                        <p className="text-xl font-bold text-fartura-green-600 uppercase">
+                          PRÉ-VENDA
                         </p>
                       </div>
                     </div>
