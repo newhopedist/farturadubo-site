@@ -4,12 +4,13 @@ import Link from 'next/link'
 export default function Comparison() {
   return (
     <section className="py-20 bg-gray-50 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center mb-8 md:mb-16">
+          <span className="text-fartura-green-600 font-bold tracking-wider uppercase text-[10px] md:text-sm mb-1 md:mb-2 block">Inovação no Campo</span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-fartura-green-900 mb-4 md:mb-6">
             A Ciência da Produtividade
           </h2>
-          <div className="w-24 h-1 bg-fartura-green-500 mx-auto mb-8"></div>
+          <div className="w-12 md:w-24 h-1 md:h-1.5 bg-gradient-to-r from-fartura-green-400 to-fartura-green-600 mx-auto mb-4 md:mb-8 rounded-full"></div>
           <p className="max-w-3xl text-xl text-gray-600 mx-auto leading-relaxed">
             Entenda como a evolução tecnológica dos fertilizantes nitrogenados transforma o resultado da sua lavoura.
           </p>

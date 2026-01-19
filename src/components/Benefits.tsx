@@ -82,16 +82,16 @@ export default function Benefits() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8">
           {benefits.map((benefit, index) => (
-            <div key={index} className="bg-white rounded-xl shadow-lg p-4 md:p-6 hover:shadow-xl transition-shadow">
-              <div className="w-10 h-10 md:w-16 md:h-16 bg-fartura-green-100 rounded-full flex items-center justify-center mb-3 md:mb-4 text-fartura-green-600 mx-auto">
+            <div key={index} className="bg-white rounded-xl shadow-lg p-3 md:p-6 hover:shadow-xl transition-shadow flex flex-col items-center text-center">
+              <div className="w-8 h-8 md:w-16 md:h-16 bg-fartura-green-100 rounded-full flex items-center justify-center mb-2 md:mb-4 text-fartura-green-600">
                 <div className="transform scale-75 md:scale-100">{benefit.icon}</div>
               </div>
-              <h3 className="text-sm md:text-xl font-semibold text-fartura-green-800 mb-1 md:mb-3">
+              <h3 className="text-xs md:text-xl font-semibold text-fartura-green-800 mb-1 md:mb-3">
                 {benefit.title}
               </h3>
-              <p className="text-xs md:text-base text-gray-600 leading-relaxed">
+              <p className="text-[10px] md:text-base text-gray-600 leading-tight">
                 {benefit.description}
               </p>
             </div>

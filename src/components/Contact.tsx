@@ -79,10 +79,12 @@ export default function Contact() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div className="bg-white rounded-xl p-8 border border-fartura-green-600 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-fartura-green-500 hover:ring-2 hover:ring-fartura-green-500/20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+          {/* Ordem invertida no mobile: Formulário primeiro, depois contatos */}
+          <div className="order-2 lg:order-1 hidden lg:block bg-white rounded-xl p-8 border border-fartura-green-600 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-fartura-green-500 hover:ring-2 hover:ring-fartura-green-500/20">
             <h3 className="text-2xl font-semibold text-fartura-green-800 mb-6">Informações de Contato</h3>
             <div className="space-y-5">
+              {/* ... conteúdo dos contatos ... */}
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 bg-gradient-to-br from-fartura-green-500 to-fartura-green-700 rounded-full flex items-center justify-center text-white shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7l9-4 9 4-9 4-9-4zm0 8l9 4 9-4M3 7v8m18-8v8"/></svg>
@@ -147,24 +149,15 @@ export default function Contact() {
                 </div>
               </div>
             </div>
-            <div className="mt-6 flex gap-3">
-              <a href="tel:+5585991289449" className="inline-flex items-center gap-2 bg-gradient-to-r from-fartura-green-600 to-fartura-green-700 hover:from-fartura-green-700 hover:to-fartura-green-800 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                Ligar
-              </a>
-              <a href="https://wa.me/5585991289449" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-white border-2 border-fartura-green-600 text-fartura-green-600 hover:bg-fartura-green-600 hover:text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                WhatsApp
-              </a>
-            </div>
           </div>
 
-          <div className="bg-white rounded-xl p-8 border border-fartura-green-600 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-fartura-green-500 hover:ring-2 hover:ring-fartura-green-500/20">
-            <h3 className="text-2xl font-semibold text-fartura-green-800 mb-6">
+          <div className="order-1 lg:order-2 bg-white rounded-xl p-6 md:p-8 border border-fartura-green-600 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-fartura-green-500 hover:ring-2 hover:ring-fartura-green-500/20">
+            <h3 className="text-xl md:text-2xl font-semibold text-fartura-green-800 mb-4 md:mb-6">
               Formulário de Contato
             </h3>
             
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
+              {/* ... formulário ... */}
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
                   Nome Completo *
@@ -280,6 +273,18 @@ export default function Contact() {
                 </div>
               )}
             </form>
+
+            {/* Botões de contato direto visíveis apenas no mobile logo abaixo do formulário */}
+            <div className="mt-6 flex gap-3 lg:hidden justify-center">
+              <a href="tel:+5585991289449" className="inline-flex items-center gap-2 bg-gradient-to-r from-fartura-green-600 to-fartura-green-700 hover:from-fartura-green-700 hover:to-fartura-green-800 text-white px-4 py-3 rounded-lg font-medium transition-all duration-300 shadow-md flex-1 justify-center text-sm">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                Ligar Agora
+              </a>
+              <a href="https://wa.me/5585991289449" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-[#25D366] text-white px-4 py-3 rounded-lg font-medium transition-all duration-300 shadow-md flex-1 justify-center text-sm">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                WhatsApp
+              </a>
+            </div>
           </div>
         </div>
       </div>
