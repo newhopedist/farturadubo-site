@@ -54,8 +54,8 @@ export default function About() {
                   className="object-cover object-bottom"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"></div>
-                <div className="absolute bottom-6 left-6 text-white">
+                
+                <div className="absolute bottom-6 left-6 text-white drop-shadow-md">
                   <p className="font-bold text-lg">Tecnologia em Campo</p>
                   <p className="text-sm opacity-90">Resultados reais para sua lavoura</p>
                 </div>
