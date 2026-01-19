@@ -23,17 +23,16 @@ export default function Hero() {
       )}
 
       
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-full flex items-center">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-full flex items-center justify-center sm:justify-start">
         {/* Forçando layout lado a lado mesmo no mobile (grid-cols-2) */}
-        <div className="grid grid-cols-2 items-center w-full gap-2 md:gap-8">
+        <div className="grid grid-cols-2 items-center w-full gap-2 md:gap-8 pt-4 sm:pt-0">
           <div className="text-left relative z-10">
-            <h1 className="text-lg sm:text-2xl md:text-4xl lg:text-5xl font-bold text-fartura-green-900 mb-2 md:mb-6 leading-tight">
+            <h1 className="text-lg sm:text-2xl md:text-4xl lg:text-5xl font-bold text-fartura-green-900 mb-1 md:mb-6 leading-tight">
               Fertilizantes de
               <span className="text-fartura-green-600 block">Alta Performance</span>
             </h1>
-            <p className="text-[10px] sm:text-sm md:text-lg text-fartura-green-800 mb-3 md:mb-8 leading-relaxed max-w-full font-medium sm:max-w-[90%]">
-              Maximize sua produtividade com fertilizantes <strong>FARTURADUBO</strong>. <br className="block" />
-              Tecnologia avançada para resultados excepcionais.
+            <p className="text-[10px] sm:text-sm md:text-lg text-fartura-green-800 mb-2 md:mb-8 leading-relaxed max-w-full font-medium sm:max-w-[90%] line-clamp-2">
+              Maximize sua produtividade com fertilizantes <strong>FARTURADUBO</strong>. Tecnologia avançada para resultados excepcionais.
             </p>
             <div className="flex flex-col gap-2 justify-start">
               <Link href="#products" aria-label="Ir para seção de produtos" className="bg-fartura-green-600 hover:bg-fartura-green-700 text-white px-3 py-2 md:px-6 md:py-3 rounded-lg font-semibold text-[10px] sm:text-sm md:text-lg transition-colors shadow-lg text-center w-full sm:w-auto" onClick={() => {
