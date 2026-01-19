@@ -74,19 +74,19 @@ export default function About() {
                 </div>
               </div>
             </div>
-          </div>
-          
-          {/* Card de Qualidade Garantida (Visível apenas no mobile, abaixo da imagem) */}
-          <div className="bg-white rounded-xl shadow-lg p-3 border border-fartura-green-200 block md:hidden mt-2">
-            <div className="flex items-center space-x-3 justify-center">
-              <div className="w-10 h-10 bg-fartura-green-100 rounded-full flex items-center justify-center">
-                <svg className="w-5 h-5 text-fartura-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <div>
-                <div className="font-semibold text-sm text-fartura-green-800">Qualidade Garantida</div>
-                <div className="text-xs text-gray-600">Testado e aprovado</div>
+            
+            {/* Card de Qualidade Garantida (Visível apenas no mobile, abaixo da imagem) */}
+            <div className="bg-white rounded-xl shadow-lg p-3 border border-fartura-green-200 block md:hidden mt-2">
+              <div className="flex items-center space-x-3 justify-center">
+                <div className="w-10 h-10 bg-fartura-green-100 rounded-full flex items-center justify-center">
+                  <svg className="w-5 h-5 text-fartura-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <div className="font-semibold text-sm text-fartura-green-800">Qualidade Garantida</div>
+                  <div className="text-xs text-gray-600">Testado e aprovado</div>
+                </div>
               </div>
             </div>
           </div>
