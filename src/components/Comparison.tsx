@@ -11,7 +11,7 @@ export default function Comparison() {
             A Ciência da Produtividade
           </h2>
           <div className="w-12 md:w-24 h-1 md:h-1.5 bg-gradient-to-r from-fartura-green-400 to-fartura-green-600 mx-auto mb-4 md:mb-8 rounded-full"></div>
-          <p className="max-w-3xl text-xl text-gray-600 mx-auto leading-relaxed">
+          <p className="max-w-3xl text-xs sm:text-sm md:text-lg text-gray-600 mx-auto leading-relaxed">
             Entenda como a evolução tecnológica dos fertilizantes nitrogenados transforma o resultado da sua lavoura.
           </p>
         </div>

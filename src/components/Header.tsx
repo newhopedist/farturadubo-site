@@ -22,14 +22,16 @@ export default function Header() {
   useEffect(() => {
     const controlNavbar = () => {
       if (typeof window !== 'undefined') {
-        if (window.scrollY > lastScrollY && window.scrollY > 100) {
-          // Rolar para baixo - Esconde
+        const currentScrollY = window.scrollY
+        
+        // Se rolou para baixo e passou de 10px, esconde
+        if (currentScrollY > lastScrollY && currentScrollY > 10) {
           setIsVisible(false)
         } else {
-          // Rolar para cima - Mostra
+          // Se rolou para cima, mostra
           setIsVisible(true)
         }
-        setLastScrollY(window.scrollY)
+        setLastScrollY(currentScrollY)
       }
     }
 

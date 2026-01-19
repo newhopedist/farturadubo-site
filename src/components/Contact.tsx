@@ -72,8 +72,8 @@ export default function Contact() {
           <h2 className="text-3xl md:text-4xl font-bold text-fartura-green-900 mb-4">
             Entre em Contato
           </h2>
-          <div className="w-20 h-1 bg-fartura-green-600 mx-auto mb-6"></div>
-          <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+          <div className="w-12 md:w-20 h-1 bg-fartura-green-600 mx-auto mb-4 md:mb-6"></div>
+          <p className="text-xs sm:text-sm md:text-lg text-gray-700 max-w-3xl mx-auto">
             Tem dúvidas sobre nossos produtos ou precisa de orientação técnica? 
             Nossa equipe de especialistas está pronta para ajudar você.
           </p>
