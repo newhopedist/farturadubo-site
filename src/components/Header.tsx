@@ -90,17 +90,17 @@ export default function Header() {
   }
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-white shadow-lg z-50">
+    <header className={`fixed top-0 left-0 right-0 bg-white shadow-lg z-50 transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Top">
-        <div className="flex w-full items-center justify-between border-b border-fartura-green-100 py-4">
+        <div className="flex w-full items-center justify-between border-b border-fartura-green-100 py-2 md:py-4">
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
-              <div className="h-12 w-48 relative">
+              <div className="h-10 w-32 md:h-12 md:w-48 relative">
                 <Image
                   src="/logo.webp?v=3"
                   alt={brand.alt}
                   fill
-                  sizes="192px"
+                  sizes="(max-width: 768px) 128px, 192px"
                   className="object-contain"
                   priority
                 />
