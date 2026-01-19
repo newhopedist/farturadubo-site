@@ -25,7 +25,7 @@ export default function Hero() {
       
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-full flex items-center justify-center sm:justify-start">
         {/* Forçando layout lado a lado mesmo no mobile (grid-cols-2) */}
-        <div className="grid grid-cols-2 items-center w-full gap-2 md:gap-8 pt-8 sm:pt-0 pb-2">
+        <div className="grid grid-cols-2 items-center w-full gap-2 md:gap-8 pt-12 sm:pt-0 pb-1">
           <div className="text-left relative z-10">
             <h1 className="text-lg sm:text-2xl md:text-4xl lg:text-5xl font-bold text-fartura-green-900 mb-1 md:mb-6 leading-tight">
               Fertilizantes de
