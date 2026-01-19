@@ -32,7 +32,7 @@ className="object-cover object-[center_70%]"className="object-cover object-[cent
               <span className="text-fartura-green-600 block">Alta Performance</span>
             </h1>
             <p className="text-[10px] sm:text-sm md:text-lg text-fartura-green-800 mb-3 md:mb-8 leading-relaxed max-w-full font-medium sm:max-w-[90%]">
-              Maximize sua produtividade com fertilizantes <strong>FARTURADUBO</strong>. <br className="hidden sm:block" />
+              Maximize sua produtividade com fertilizantes <strong>FARTURADUBO</strong>. <br className="block" />
               Tecnologia avançada para resultados excepcionais.
             </p>
             <div className="flex flex-col gap-2 justify-start">
