@@ -31,9 +31,9 @@ export default function Hero() {
               Fertilizantes de
               <span className="text-fartura-green-600 block">Alta Performance</span>
             </h1>
-            <p className="text-[10px] sm:text-sm md:text-lg text-fartura-green-800 mb-3 md:mb-8 leading-relaxed max-w-full font-medium">
-              Maximize sua produtividade com fertilizantes <strong>FARTURADUBO</strong>. Tecnologia avançada
-              para resultados excepcionais.
+            <p className="text-[10px] sm:text-sm md:text-lg text-fartura-green-800 mb-3 md:mb-8 leading-relaxed max-w-full font-medium sm:max-w-[90%]">
+              Maximize sua produtividade com fertilizantes <strong>FARTURADUBO</strong>. <br className="hidden sm:block" />
+              Tecnologia avançada para resultados excepcionais.
             </p>
             <div className="flex flex-col gap-2 justify-start">
               <Link href="#products" aria-label="Ir para seção de produtos" className="bg-fartura-green-600 hover:bg-fartura-green-700 text-white px-3 py-2 md:px-6 md:py-3 rounded-lg font-semibold text-[10px] sm:text-sm md:text-lg transition-colors shadow-lg text-center w-full sm:w-auto" onClick={() => {

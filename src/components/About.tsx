@@ -51,7 +51,7 @@ export default function About() {
                   alt="Aplicação de Fartureia no campo"
                   fill
                   sizes="(min-width: 768px) 50vw, 100vw"
-                  className="object-cover object-bottom"
+                  className="object-cover object-[center_30%]"
                   priority
                 />
                 
