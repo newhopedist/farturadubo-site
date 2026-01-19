@@ -47,7 +47,7 @@ export default function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Abrir conversa no WhatsApp"
-                className="bg-white border-2 border-fartura-green-600 text-fartura-green-600 hover:bg-fartura-green-600 hover:text-white px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold text-base md:text-lg transition-colors shadow-lg"
+                className="bg-white border-2 border-fartura-green-600 text-fartura-green-600 hover:bg-fartura-green-600 hover:text-white px-6 py-3 rounded-lg font-semibold text-sm sm:text-base md:text-lg transition-colors shadow-lg text-center"
                 onClick={() => {
                   if (typeof window !== 'undefined' && (window as any).gtag) {
                     (window as any).gtag('event', 'cta_click', { label: 'hero_whatsapp' })

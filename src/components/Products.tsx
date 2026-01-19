@@ -76,25 +76,25 @@ export default function Products() {
   }
 
   return (
-    <section id="products" className="py-20 bg-gray-50 scroll-mt-24">
+    <section id="products" className="py-12 md:py-20 bg-gray-50 scroll-mt-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-fartura-green-900 mb-4">
+        <div className="text-center mb-10 md:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-fartura-green-900 mb-4">
             Nossos Produtos
           </h2>
-          <div className="w-20 h-1 bg-fartura-green-600 mx-auto mb-6"></div>
-          <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+          <div className="w-16 md:w-20 h-1 bg-fartura-green-600 mx-auto mb-4 md:mb-6"></div>
+          <p className="text-base md:text-lg text-gray-700 max-w-3xl mx-auto">
             Apresentamos <strong>fertilizantes de alta qualidade</strong> em diferentes embalagens para atender todas as
             necessidades de manejo, com eficiência nutricional e alto rendimento.
           </p>
         </div>
 
-        <div className="flex justify-center mb-8">
+        <div className="flex justify-center mb-6 md:mb-8">
           <Link
             href="/produtos"
-            className="bg-fartura-green-600 hover:bg-fartura-green-700 text-white px-6 py-3 rounded-lg font-medium transition-colors inline-flex items-center"
+            className="bg-fartura-green-600 hover:bg-fartura-green-700 text-white px-5 py-2.5 md:px-6 md:py-3 rounded-lg font-medium transition-colors inline-flex items-center text-sm md:text-base"
           >
-            <Package className="w-5 h-5 mr-2" />
+            <Package className="w-4 h-4 md:w-5 md:h-5 mr-2" />
             Ver Todos os Produtos
           </Link>
         </div>
@@ -109,7 +109,7 @@ export default function Products() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {displayProducts.map((item) => (
               <div key={item.id} className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl hover:border-fartura-green-300 transition-all duration-300 group">
-                <div className="h-56 bg-white flex items-center justify-center p-4 relative">
+                <div className="h-48 md:h-56 bg-white flex items-center justify-center p-4 relative">
                   <div className="w-full h-full relative">
                     <Image
                       src={item.image}
@@ -124,14 +124,14 @@ export default function Products() {
                   </div>
                   </div>
                 
-                <div className="p-5 border-t border-gray-100">
-                  <h3 className="text-lg font-bold text-fartura-green-800 mb-1">{item.name} {item.peso.toUpperCase()}</h3>
-                  <p className="text-gray-500 text-sm mb-4">Ureia Agrícola Premium</p>
+                <div className="p-4 md:p-5 border-t border-gray-100">
+                  <h3 className="text-base md:text-lg font-bold text-fartura-green-800 mb-1">{item.name} {item.peso.toUpperCase()}</h3>
+                  <p className="text-gray-500 text-xs md:text-sm mb-3 md:mb-4">Ureia Agrícola Premium</p>
                   
-                  <div className="flex flex-col gap-3">
+                  <div className="flex flex-col gap-2 md:gap-3">
                     <div className="flex justify-between items-end">
                       <div>
-                        <p className="text-xl font-bold text-fartura-green-600 uppercase">
+                        <p className="text-lg md:text-xl font-bold text-fartura-green-600 uppercase">
                           PRÉ-VENDA
                         </p>
                       </div>

@@ -67,31 +67,31 @@ export default function Benefits() {
   return (
     <section
       id="benefits"
-      className="relative py-20 scroll-mt-24 bg-cover bg-center"
+      className="relative py-12 md:py-20 scroll-mt-24 bg-cover bg-center"
       style={{ backgroundImage: "url('/comunidade-de-pessoas-que-trabalham-juntas-na-agricultura-para-cultivar-alimentos.webp')" }}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="relative text-center mb-16 bg-white/90 backdrop-blur-sm px-8 py-12 rounded-2xl shadow-xl border border-gray-100 max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-fartura-green-900 mb-6">
+        <div className="relative text-center mb-10 md:mb-16 bg-white/90 backdrop-blur-sm px-5 py-8 md:px-8 md:py-12 rounded-2xl shadow-xl border border-gray-100 max-w-4xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-fartura-green-900 mb-4 md:mb-6">
             Benefícios dos Nossos Fertilizantes
           </h2>
-          <div className="w-24 h-1.5 bg-fartura-green-600 mx-auto mb-8 rounded-full"></div>
-          <p className="text-xl text-fartura-green-800 font-medium max-w-3xl mx-auto leading-relaxed">
+          <div className="w-16 md:w-24 h-1.5 bg-fartura-green-600 mx-auto mb-6 md:mb-8 rounded-full"></div>
+          <p className="text-base sm:text-lg md:text-xl text-fartura-green-800 font-medium max-w-3xl mx-auto leading-relaxed">
             "Nossos produtos oferecem vantagens comprovadas para maximizar a produtividade 
             e garantir resultados excepcionais na sua lavoura."
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {benefits.map((benefit, index) => (
-            <div key={index} className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow">
-              <div className="w-16 h-16 bg-fartura-green-100 rounded-full flex items-center justify-center mb-4 text-fartura-green-600 mx-auto">
-                {benefit.icon}
+            <div key={index} className="bg-white rounded-xl shadow-lg p-5 md:p-6 hover:shadow-xl transition-shadow">
+              <div className="w-12 h-12 md:w-16 md:h-16 bg-fartura-green-100 rounded-full flex items-center justify-center mb-4 text-fartura-green-600 mx-auto">
+                <div className="transform scale-75 md:scale-100">{benefit.icon}</div>
               </div>
-              <h3 className="text-xl font-semibold text-fartura-green-800 mb-3">
+              <h3 className="text-lg md:text-xl font-semibold text-fartura-green-800 mb-2 md:mb-3">
                 {benefit.title}
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-sm md:text-base text-gray-600 leading-relaxed">
                 {benefit.description}
               </p>
             </div>

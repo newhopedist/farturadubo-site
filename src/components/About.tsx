@@ -45,7 +45,7 @@ export default function About() {
           
           <div className="relative h-full flex flex-col justify-between">
             <div className="bg-white rounded-2xl p-2 shadow-xl border border-gray-100 transform hover:scale-[1.02] transition-transform duration-500 h-full">
-              <div className="relative h-full w-full rounded-xl overflow-hidden min-h-[500px]">
+              <div className="relative h-full w-full rounded-xl overflow-hidden min-h-[350px] md:min-h-[500px]">
                 <Image
                   src="/fartureia-no-campo.webp"
                   alt="Aplicação de Fartureia no campo"
@@ -56,21 +56,21 @@ export default function About() {
                 />
                 
                 <div className="absolute bottom-6 left-6 text-white drop-shadow-md">
-                  <p className="font-bold text-lg">Tecnologia em Campo</p>
-                  <p className="text-sm opacity-90">Resultados reais para sua lavoura</p>
+                  <p className="font-bold text-base md:text-lg">Tecnologia em Campo</p>
+                  <p className="text-xs md:text-sm opacity-90">Resultados reais para sua lavoura</p>
                 </div>
               </div>
             </div>
-            <div className="absolute -bottom-6 -right-6 bg-white rounded-xl shadow-lg p-6 border border-fartura-green-200">
+            <div className="absolute -bottom-4 -right-4 md:-bottom-6 md:-right-6 bg-white rounded-xl shadow-lg p-4 md:p-6 border border-fartura-green-200">
               <div className="flex items-center space-x-3">
-                <div className="w-12 h-12 bg-fartura-green-100 rounded-full flex items-center justify-center">
-                  <svg className="w-6 h-6 text-fartura-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-fartura-green-100 rounded-full flex items-center justify-center">
+                  <svg className="w-5 h-5 md:w-6 md:h-6 text-fartura-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
                 <div>
-                  <div className="font-semibold text-fartura-green-800">Qualidade Garantida</div>
-                  <div className="text-sm text-gray-600">Testado e aprovado</div>
+                  <div className="font-semibold text-sm md:text-base text-fartura-green-800">Qualidade Garantida</div>
+                  <div className="text-xs md:text-sm text-gray-600">Testado e aprovado</div>
                 </div>
               </div>
             </div>
