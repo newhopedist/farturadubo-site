@@ -16,7 +16,7 @@ export default function Hero() {
       {/* Camada de logo sobre a imagem de fundo - Agora sempre visível e menor no mobile */}
       {brand.heroLogoSrc && (
         <div className="absolute top-4 right-4 md:top-8 md:right-8 opacity-95">
-          <div className="relative h-8 w-28 md:h-12 md:w-40">
+className="object-cover object-[center_70%]"className="object-cover object-[center_70%]"          <div className="relative h-8 w-28 md:h-12 md:w-40">
             <Image src={`${brand.heroLogoSrc}?v=2`} alt="Logomarca" fill sizes="160px" className="object-contain" priority />
           </div>
         </div>
