@@ -39,10 +39,10 @@ export default function ProductBuyingSection({ product }: ProductBuyingSectionPr
   return (
     <div className="mt-8 border-t border-gray-100 pt-6">
       <div className="bg-fartura-green-50 rounded-xl p-6 border border-fartura-green-100 text-center">
-        <h3 className="text-lg font-bold text-fartura-green-900 mb-2">Produto em Alta Demanda</h3>
+        <h3 className="text-lg font-bold text-fartura-green-900 mb-2 uppercase">Disponível em Breve</h3>
         <p className="text-sm text-gray-600 mb-6">
-          Devido à grande procura, estamos aceitando pedidos apenas sob consulta. 
-          Garanta sua remessa entrando em contato agora.
+          Este produto ainda não chegou ao nosso estoque. 
+          Entre em contato para ser avisado assim que estiver disponível.
         </p>
 
         <div className="space-y-3">
