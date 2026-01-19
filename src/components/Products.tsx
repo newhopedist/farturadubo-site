@@ -106,10 +106,10 @@ export default function Products() {
             <p className="text-gray-600">Em breve teremos novos produtos em estoque.</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {displayProducts.map((item) => (
               <div key={item.id} className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl hover:border-fartura-green-300 transition-all duration-300 group">
-                <div className="h-48 md:h-56 bg-white flex items-center justify-center p-4 relative">
+                <div className="h-40 sm:h-48 md:h-56 bg-white flex items-center justify-center p-4 relative">
                   <div className="w-full h-full relative">
                     <Image
                       src={item.image}
