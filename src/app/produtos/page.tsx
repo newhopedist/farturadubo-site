@@ -26,8 +26,6 @@ async function ProductsList() {
 }
 
 export default function ProdutosPage() {
-  const portfolioUrl =
-    process.env.NEXT_PUBLIC_PORTFOLIO_URL || '/DOCS UREIA/Apresentação Fartureia.pdf'
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header da Página */}
@@ -55,16 +53,6 @@ export default function ProdutosPage() {
         >
           <ProductsList />
         </Suspense>
-        <div className="mt-10 flex items-center justify-center">
-          <a
-            href={portfolioUrl}
-            download="farturadubo-portfolio.pdf"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold bg-gradient-to-r from-fartura-green-600 to-fartura-green-700 text-white shadow-lg hover:shadow-xl hover:from-fartura-green-700 hover:to-fartura-green-800 transition-all"
-          >
-            <FileDown className="w-5 h-5" />
-            Baixe nosso portfólio
-          </a>
-        </div>
       </div>
 
       {/* Seção de Informações */}
