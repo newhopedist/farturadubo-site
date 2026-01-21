@@ -5,6 +5,7 @@ import { ArrowLeft, CheckCircle2, Clock, Ruler, Package } from 'lucide-react'
 import { productContents } from '@/lib/product-content'
 import BeforeAfterSlider from '@/components/BeforeAfterSlider'
 import ProductBuyingSection from '@/components/ProductBuyingSection'
+import PortfolioDownloadModal from '@/components/PortfolioDownloadModal'
 
 // Função auxiliar para mapear slugs para imagens (já que as imagens não estão no arquivo de conteúdo)
 const getProductImage = (slug: string) => {
@@ -100,6 +101,10 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
 
             {/* Coluna da Direita: Conteúdo */}
             <div className="p-6 lg:p-12 flex flex-col">
+              <PortfolioDownloadModal
+                productTitle={content.title}
+                productPortfolioUrl={content.portfolioUrl}
+              />
               {/* Título no Desktop (Escondido no Mobile) */}
               <div className="hidden lg:block">
                 <span className="inline-block bg-fartura-green-100 text-fartura-green-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide mb-4 w-fit">
