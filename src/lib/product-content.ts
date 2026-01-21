@@ -7,6 +7,7 @@ export interface ProductDetailContent {
   targetAudience: string
   description: string
   price: number // Adicionado
+  portfolioUrl?: string
   benefits: {
     icon: any
     title: string
