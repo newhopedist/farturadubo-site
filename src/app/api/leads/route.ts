@@ -1,4 +1,4 @@
-import { supabase } from '@/lib/supabase'
+import { supabaseAdmin } from '@/lib/supabaseAdmin'
 
 export async function POST(req: Request) {
   try {
@@ -8,8 +8,8 @@ export async function POST(req: Request) {
     }
 
     let stored = false
-    if (process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
-      const { error } = await supabase.from('leads').insert({
+    if (process.env.SUPABASE_SERVICE_ROLE_KEY) {
+      const { error } = await supabaseAdmin.from('leads').insert({
         name,
         email,
         whatsapp,
@@ -24,4 +24,3 @@ export async function POST(req: Request) {
     return new Response(JSON.stringify({ ok: false }), { status: 500 })
   }
 }
-
